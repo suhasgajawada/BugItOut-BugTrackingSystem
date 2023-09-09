@@ -21,8 +21,9 @@ public class TeamServiceImpl implements TeamService {
 	/**
 	 * 
 	 */
+	TeamDao teamDaoService = null;
 	public TeamServiceImpl() {
-		TeamDao teamDaoService = ObjectFactory.getTeamDaoInstance();
+		teamDaoService = ObjectFactory.getTeamDaoInstance();
 	}
 
 	@Override
