@@ -9,42 +9,41 @@
     <link rel="stylesheet" href="nav.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     
-    <link rel="stylesheet" href="breadcrump.css">
+    <link rel="stylesheet" href="index.css">
     <title>Hello, world!</title>
   </head>
   <body>
-    
-    <!--navbar code-->
     <nav class="navbar navbar-expand-custom navbar-mainbg">
-        <a class="navbar-brand navbar-logo" href="#">Navbar</a>
-        <button class="navbar-toggler" type="button" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <i class="fas fa-bars text-white"></i>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ml-auto">
-                <div class="hori-selector"><div class="left"></div><div class="right"></div></div>
-                <li class="nav-item">
-                    <a class="nav-link" href="javascript:void(0);"><i class="fas fa-tachometer-alt"></i>Dashboard</a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="javascript:void(0);"><i class="far fa-address-book"></i>Address Book</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="javascript:void(0);"><i class="far fa-clone"></i>Components</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="javascript:void(0);"><i class="far fa-calendar-alt"></i>Calendar</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="javascript:void(0);"><i class="far fa-chart-bar"></i>Charts</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="javascript:void(0);"><i class="far fa-copy"></i>Documents</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
-  <!--navbar code ends-->
+      <a class="navbar-brand navbar-logo" href="#">BugTracking System</a>
+      <button class="navbar-toggler" type="button" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <i class="fas fa-bars text-white"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto">
+              <div class="hori-selector"><div class="left"></div><div class="right"></div></div>
+              <li class="nav-item">
+                  <a class="nav-link" href="javascript:void(0);"><i class="fas fa-tachometer-alt"></i>Dashboard</a>
+              </li>
+              <li class="nav-item active">
+                  <a class="nav-link" href="javascript:void(0);"><i class="far fa-address-book"></i>Address Book</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="javascript:void(0);"><i class="far fa-clone"></i>Components</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="javascript:void(0);"><i class="far fa-calendar-alt"></i>Calendar</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="javascript:void(0);"><i class="far fa-chart-bar"></i>Charts</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="javascript:void(0);"><i class="far fa-copy"></i>Documents</a>
+              </li>
+          </ul>
+      </div>
+  </nav> 
+    <!--navbar code-->
+ 
 
 
 
@@ -55,10 +54,14 @@
               <div class="card">
                 <div class="card-body">
                   <div class="d-flex flex-column align-items-center text-center">
-                    <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" width="150">
+                   <div >
+                    <img  src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" class="status-circle"width="150">
+                   <div class="status-circle"></div>
+                   </div>
+                
                     <div class="mt-3">
                       <h4>Rajesh Sathyapathy</h4>
-                      <p class="text-secondary mb-1">Project Manager</p>
+                      <p class="text-secondary mb-1">Developer</p>
   
                       <button class="btn btn-primary">Create New Project</button>
                       
@@ -66,17 +69,17 @@
                   </div>
                 </div>
               </div>
-             
             </div>
+
             <div class="col-md-8">
               <div class="card mb-3">
                 <div class="card-body">
                   <div class="row">
                     <div class="col-sm-3">
-                      <h6 class="mb-0">Rajesh Sathyapathy</h6>
+                      <h6 class="mb-0">Name</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                      Kenneth Valdez
+                      Rajesh Sathyapathy
                     </div>
                   </div>
                   <hr>
@@ -111,83 +114,16 @@
                 </div>
               </div>
 
-
-
-              <div class="card mt-6 border-5 pt-2 active pb-0 px-3">
-                <div class="card-body ">
-                    <div class="row">
-                        <div class="col-12 ">
-                            <h4 class="card-title "><b>Project Title</b></h4>
-    
-                        </div>
-                        <div class="col">
-                            <h6 class="card-subtitle mb-2 text-muted">
-                                <p class="card-text text-muted small ">
-                                    <img src="https://img.icons8.com/metro/26/000000/star.png" class="mr-1 " width="19"
-                                        height="19" id="star"> <span class="vl mr-2 ml-0"></span>
-    
-                                    Created by <span class="font-weight-bold"> BBBootstrap Team</span> on 1 Nov , 2018</p>
-                            </h6>
-                        </div>
-                    </div>
-    
-                </div>
-    
-                <div class="card-footer bg-white px-0 ">
-                    <div class="row">
-    
-                        <div class=" col-md-auto ">
-                            <a href="#" class="btn btn-outlined btn-black text-muted bg-transparent"
-                                data-wow-delay="0.7s"><img src="https://img.icons8.com/ios/50/000000/settings.png"
-                                    width="19" height="19"> <small>SETTINGS</small></a>
-    
-                            <i class="mdi mdi-settings-outline"></i>
-    
-    
-    
-    
-                            <a href="#" class="
-                             btn-outlined btn-black text-muted"><img src="https://img.icons8.com/metro/26/000000/link.png"
-                                    width="17" height="17" id="plus">
-                                <small>PROJECT LINK</small> </a>
-    
-    
-                            
-     
-                            <span class="vl ml-3"></span>
-                        </div>
-                        <div class="dropdown">
-                          <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">
-                           List of Bugs
-                          </button>
-                          <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Link 1</a></li>
-                            <li><a class="dropdown-item" href="#">Link 2</a></li>
-                            <li><a class="dropdown-item" href="#">Link 3</a></li>
-                          </ul>
-                        </div>
-                        <div class="col-md-auto ">
-                            <ul class="list-inline">
-                                <li class="list-inline-item"> <img
-                                        src="https://res.cloudinary.com/dxfq3iotg/image/upload/v1573035860/Pra/Hadie-profile-pic-circle-1.png"
-                                        alt="DP" class="  rounded-circle img-fluid " width="35" height="35">
-                                </li>
-                                <li class="list-inline-item"> <img src="https://img.icons8.com/ios/50/000000/plus.png"
-                                        width="30" height="30 " class="more"> 
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+              
             </div>
-            <div class="card mt-5 border-5 pt-2 active pb-0 px-3">
+            <div class="card mt-6 border-5 pt-2 active pb-0 px-3">
               <div class="card-body ">
                   <div class="row">
                       <div class="col-12 ">
-                          <h4 class="card-title "><b>PROJECT Title</b></h4>
+                          <h4 class="card-title "><b>Project Title</b></h4>
   
                       </div>
-                      <div class="col">
+                      <!-- <div class="col">
                           <h6 class="card-subtitle mb-2 text-muted">
                               <p class="card-text text-muted small ">
                                   <img src="https://img.icons8.com/metro/26/000000/star.png" class="mr-1 " width="19"
@@ -195,7 +131,7 @@
   
                                   Created by <span class="font-weight-bold"> BBBootstrap Team</span> on 1 Nov , 2018</p>
                           </h6>
-                      </div>
+                      </div> -->
                   </div>
   
               </div>
@@ -219,20 +155,19 @@
                               <small>PROJECT LINK</small> </a>
   
   
+                          
+   
                           <span class="vl ml-3"></span>
                       </div>
-                     
                       <div class="dropdown">
-                        <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">
-                         List of Bugs
-                        </button>
+                        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">List of Bug
+                        <span class="caret"></span></button>
                         <ul class="dropdown-menu">
-                          <li><a class="dropdown-item" href="#">Link 1</a></li>
-                          <li><a class="dropdown-item" href="#">Link 2</a></li>
-                          <li><a class="dropdown-item" href="#">Link 3</a></li>
+                          <li><a href="#">HTML</a></li>
+                          <li><a href="#">CSS</a></li>
+                          <li><a href="#">JavaScript</a></li>
                         </ul>
                       </div>
-                      
                       <div class="col-md-auto ">
                           <ul class="list-inline">
                               <li class="list-inline-item"> <img
@@ -247,16 +182,84 @@
                   </div>
               </div>
           </div>
-               
-                 
-  
-  
-  
-              </div>
+          <div class="card mt-5 border-5 pt-2 active pb-0 px-3">
+            <div class="card-body ">
+                <div class="row">
+                    <div class="col-12 ">
+                        <h4 class="card-title "><b>PROJECT Title</b></h4>
+
+                    </div>
+                    <!-- <div class="col">
+                        <h6 class="card-subtitle mb-2 text-muted">
+                            <p class="card-text text-muted small ">
+                                <img src="https://img.icons8.com/metro/26/000000/star.png" class="mr-1 " width="19"
+                                    height="19" id="star"> <span class="vl mr-2 ml-0"></span>
+
+                                Created by <span class="font-weight-bold"> BBBootstrap Team</span> on 1 Nov , 2018</p>
+                        </h6>
+                    </div> -->
+                </div>
+
             </div>
-  
+
+            <div class="card-footer bg-white px-0 ">
+                <div class="row">
+
+                    <div class=" col-md-auto ">
+                        <a href="#" class="btn btn-outlined btn-black text-muted bg-transparent"
+                            data-wow-delay="0.7s"><img src="https://img.icons8.com/ios/50/000000/settings.png"
+                                width="19" height="19"> <small>SETTINGS</small></a>
+
+                        <i class="mdi mdi-settings-outline"></i>
+
+
+
+
+                        <a href="#" class="
+                         btn-outlined btn-black text-muted"><img src="https://img.icons8.com/metro/26/000000/link.png"
+                                width="17" height="17" id="plus">
+                            <small>PROJECT LINK</small> </a>
+
+
+                        <span class="vl ml-3"></span>
+                    </div>
+                   
+                    <div class="dropdown">
+                      <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">List of Bug
+                      <span class="caret"></span></button>
+                      <ul class="dropdown-menu">
+                        <li><a href="#">HTML</a></li>
+                        <li><a href="#">CSS</a></li>
+                        <li><a href="#">JavaScript</a></li>
+                      </ul>
+                    </div>
+                    
+                    <div class="col-md-auto ">
+                        <ul class="list-inline">
+                            <li class="list-inline-item"> <img
+                                    src="https://res.cloudinary.com/dxfq3iotg/image/upload/v1573035860/Pra/Hadie-profile-pic-circle-1.png"
+                                    alt="DP" class="  rounded-circle img-fluid " width="35" height="35">
+                            </li>
+                            <li class="list-inline-item"> <img src="https://img.icons8.com/ios/50/000000/plus.png"
+                                    width="30" height="30 " class="more"> 
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+             
+               
+
+
+
+            </div>
           </div>
-      </div>
+
+        </div>
+    </div>
+
+    
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -264,28 +267,47 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    
+    <script type="text/javascript" src="nav.js"></script>
+    <footer>
+      <div class="f-item-con">
+          <div class="app-info">
+              <span class='app-name'>
+                  <span class='app-initial'>R</span>awnge
+              </span>
+              <p>We provides you with <strong>Well organised</strong> and <strong>SEO friendly</strong> Website Designs.</p>
+          </div>
+          <div class="useful-links">
+              <div class="footer-title">Useful Links</div>
+              <ul>
+                  <li>Courses</li>
+                  <li>Sign In</li>
+                  <li>About Us</li>
+                  <li>Become an Affiliate</li>
+                  <li>Advertise with Us</li>
+                  <li>Terms and Conditions</li>
+              </ul>
+          </div>
+          <div class="help-sec">
+              <div class="footer-title">Help</div>
+              <ul>
+                  <li>Help Me</li>
+                  <li>Feedback</li>
+                  <li>Report a Issue / Bug</li>
+              </ul>
+          </div>
+          <div class="g-i-t">
+              <div class="footer-title">Get in Touch</div>
+              <form action="/" method="post" class="space-y-2">
+                  <input type="text" name="g-name" class="g-inp" id="g-name" placeholder='Name' />
+                  <input type="email" name="g-email" class="g-inp" id="g-email" placeholder='Email' />
+                  <textarea type="text" name="g-msg" class="g-inp h-40 resize-none" id="g-msg"
+                      placeholder='Message...'></textarea>
+                  <button type="submit" class='f-btn'>Submit</button>
+              </form>
+          </div>
+      </div>
+      <div class='cr-con'>Copyright &copy; 2022 | Made by Rawnge</div>
+  </footer>
+
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
