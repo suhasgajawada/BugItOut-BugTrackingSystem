@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/bugItOut/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/bugItOut/src/com/bts/beans" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/bugItOut/src/com/bts/dao" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/bugItOut/src/com/bts/exceptions" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/bugItOut/src/com/bts/service" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/bugItOut/src/com/bts/util" isTestSource="false" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>
