@@ -140,7 +140,7 @@ public class TestViewController {
                 createProject(scanner);
                 break;
             case 2:
-                viewProjects();
+                viewProjects(scanner);
                 break;
             case 9:
                 // Return to the main menu
@@ -150,20 +150,25 @@ public class TestViewController {
         }
     }
 
-    private static void viewBugs() {
-		
-		
+    private static void viewBugs(int projectId) {
+		try {
+			bugService.getBugsByProjectID(projectId);
+		} catch (DataAccessException e) {
+			System.err.println(e.getMessage());
+		}
 	}
 
-    private static void viewProjects() {
+    private static void viewProjects(Scanner scanner) {
 		try {
 			Set<Project> projects =  projectService.getAllProjects();
 			System.out.println("Here are all the projects!!");
 			for( Project p : projects)
 			{
-				System.out.println(p.getProjectName());
+				System.out.print(p.getProjectName() + " ");
+				System.out.println(p.getProjectId());
 			}
-			System.out.println("Enter Project Name to view bugs: ");
+			System.out.println("Enter Project ID to view bugs: ");
+			viewBugs(scanner.nextInt());
 			
 		} catch (DataAccessException e) {
 			System.err.println(e.getMessage());
