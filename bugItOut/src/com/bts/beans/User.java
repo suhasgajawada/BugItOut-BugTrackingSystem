@@ -99,12 +99,13 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	/**
-	 * 
-	 */
 	public User() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-
+	public User(String name, UserType role, String email) {
+		this.name = name;
+		this.userType = role;
+		this.email = email;
+	}
 }

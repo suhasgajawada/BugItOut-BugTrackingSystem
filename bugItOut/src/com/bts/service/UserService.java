@@ -24,5 +24,6 @@ public interface UserService {
     void logoutUser(int userID) throws DataAccessException;
     void updateUserPassword(int userID, String newPassword) throws DataAccessException, InvalidDataException;
     Set<User> getAllUsers() throws DataAccessException;
+	void registerUser(String email, String password);
 
 }

@@ -84,6 +84,14 @@ public class Project {
 		this.startDate = startDate;
 		this.status = status;
 	}
+	
+	public Project(String projectName, String description, LocalDate startDate, ProjectStatus status) {
+		super();
+		this.projectName = projectName;
+		this.description = description;
+		this.startDate = startDate;
+		this.status = status;
+	}
 	@Override
 	public String toString() {
 		return "Project [projectId=" + projectId + ", projectName=" + projectName + ", description=" + description

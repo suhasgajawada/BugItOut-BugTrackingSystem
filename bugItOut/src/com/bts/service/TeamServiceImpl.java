@@ -27,27 +27,44 @@ public class TeamServiceImpl implements TeamService {
 	}
 
 	@Override
-	public void createTeam(Team team) throws DataAccessException, InvalidDataException, TeamNotFoundException {
-		// TODO Auto-generated method stub
+	public void createTeam(Team team) throws DataAccessException {
+		try {
+			teamDaoService.createTeam(team);
+		} catch (DataAccessException e) {
+			throw new DataAccessException(e.getMessage());
+		}
 
 	}
 
 	@Override
 	public Team getTeamByID(int teamID) throws TeamNotFoundException, DataAccessException {
-		// TODO Auto-generated method stub
-		return null;
+		try {
+			return teamDaoService.getTeamByID(teamID);
+		} catch (DataAccessException e) {
+			throw new DataAccessException(e.getMessage());
+		} catch (TeamNotFoundException e) {
+			throw new TeamNotFoundException(e.getMessage());
+		}
 	}
 
 	@Override
 	public Team getTeamByProjectID(int projectID) throws TeamNotFoundException, DataAccessException {
-		// TODO Auto-generated method stub
-		return null;
+		try {
+			return teamDaoService.getTeamByProjectID(projectID);
+		} catch (DataAccessException e) {
+			throw new DataAccessException(e.getMessage());
+		} catch (TeamNotFoundException e) {
+			throw new TeamNotFoundException(e.getMessage());
+		}
 	}
 
 	@Override
 	public Set<User> getTeamMembersByProjectID(int projectID) throws DataAccessException {
-		// TODO Auto-generated method stub
-		return null;
+		try {
+			return teamDaoService.getTeamMembersByProjectID(projectID);
+		} catch (DataAccessException e) {
+			throw new DataAccessException(e.getMessage());
+		}
 	}
 
 }

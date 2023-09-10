@@ -96,4 +96,11 @@ public class UserServiceImpl implements UserService {
 		return users;
 	}
 
+	@Override
+	public void registerUser(String email, String password) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
 }
