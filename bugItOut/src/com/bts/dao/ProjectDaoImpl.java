@@ -85,7 +85,7 @@ public class ProjectDaoImpl implements com.bts.dao.ProjectDao {
 			preparedStatement.setInt(1, projectId);
 			ResultSet resultSet = preparedStatement.executeQuery();
 
-			while(resultSet.next()){
+			if(resultSet.next()){
 				project = new Project();
 				project.setProjectId(resultSet.getInt("projectId"));
 				project.setProjectName(resultSet.getString("projectName"));
@@ -93,14 +93,11 @@ public class ProjectDaoImpl implements com.bts.dao.ProjectDao {
 				project.setStartDate(resultSet.getTimestamp("startDate").toLocalDateTime().toLocalDate());
 				project.setStatus(Status.valueOf(resultSet.getString("status")));
 			}
-//			Executing the query
-			int rowsAffected = preparedStatement.executeUpdate();
-
-			if(rowsAffected != 1){
-				throw new DataAccessException();
+			else {
+				throw new ProjectNotFoundException("Project with ID " + projectId + " not found");
 			}
 
-//			Close the prepared statement
+			resultSet.close();
 			preparedStatement.close();
 			con.close();
 		}
