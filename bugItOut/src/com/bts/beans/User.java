@@ -3,6 +3,9 @@
  */
 package com.bts.beans;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.Objects;
 
 import com.bts.beans.enums.UserType;
@@ -16,6 +19,20 @@ public class User {
 	private String email;
 	private UserType userType;
 	private String password;
+	private LocalDateTime lastLoginTime ;
+
+	/**
+	 * @return the lastLoginTime
+	 */
+	public LocalDateTime getLastLoginTime() {
+		return lastLoginTime;
+	}
+	/**
+	 * @param lastLoginTime the lastLoginTime to set
+	 */
+	public void setLastLoginTime(LocalDateTime lastLoginTime) {
+		this.lastLoginTime = lastLoginTime;
+	}
 	/**
 	 * @param userId
 	 * @param name
@@ -23,13 +40,13 @@ public class User {
 	 * @param userType
 	 * @param password
 	 */
-	public User(int userId, String name, String email, UserType userType, String password) {
+	public User( String name, String email, UserType userType, String password) {
 		super();
-		this.userId = userId;
 		this.name = name;
 		this.email = email;
 		this.userType = userType;
 		this.password = password;
+		this.lastLoginTime =null;
 	}
 	// setters , getters and overriding toString methodd
 	@Override
@@ -82,12 +99,13 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	/**
-	 * 
-	 */
 	public User() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-
+	public User(String name, UserType role, String email) {
+		this.name = name;
+		this.userType = role;
+		this.email = email;
+	}
 }

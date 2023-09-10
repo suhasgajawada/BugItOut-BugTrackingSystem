@@ -8,6 +8,7 @@ import java.util.Set;
 import com.bts.beans.User;
 import com.bts.exceptions.AuthenticationException;
 import com.bts.exceptions.DataAccessException;
+import com.bts.exceptions.UserAlreadyExistsException;
 import com.bts.exceptions.UserNotFoundException;
 
 /**
@@ -16,7 +17,7 @@ import com.bts.exceptions.UserNotFoundException;
 public class UserDaoImpl implements UserDao {
 
 	@Override
-	public void createUser(User user) throws DataAccessException {
+	public void createUser(User user) throws DataAccessException ,UserAlreadyExistsException {
 		// TODO Auto-generated method stub
 
 	}
@@ -24,7 +25,8 @@ public class UserDaoImpl implements UserDao {
 	@Override
 	public User getUserById(int userId) throws UserNotFoundException, DataAccessException {
 		// TODO Auto-generated method stub
-		return null;
+		User user= null;
+		return user;
 	}
 
 	@Override
@@ -41,7 +43,7 @@ public class UserDaoImpl implements UserDao {
 
 	@Override
 	public void logoutUser(int userId) throws DataAccessException {
-		// TODO Auto-generated method stub
+		// user.setLastLogoutTime(LocalDateTime.now());
 
 	}
 

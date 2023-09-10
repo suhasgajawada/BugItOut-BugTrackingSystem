@@ -26,44 +26,73 @@ public class ProjectServiceImpl implements ProjectService {
 	 */
 	ProjectDao projectDaoService = null;
 	public ProjectServiceImpl() {
-		ProjectDao projectDaoService = ObjectFactory.getProjectDaoInstance();
+		 projectDaoService = ObjectFactory.getProjectDaoInstance();
 	}
 
 	@Override
 	public void createProject(Project project)
 			throws DataAccessException, InvalidDataException, ProjectManagerLimitExceededException {
-		// TODO Auto-generated method stub
-
+		try {
+			projectDaoService.createProject(project);
+		} catch (DataAccessException  /*InvalidDataException ProjectManagerLimitExceededException */e) {
+			e.getMessage();
+		}
 	}
 
 	@Override
-	public Project getProjectByID(int projectID) throws ProjectNotFoundException, DataAccessException {
-		// TODO Auto-generated method stub
-		return null;
+	public Project getProjectById(int projectId) throws ProjectNotFoundException, DataAccessException {
+		Project projectById = null;
+		try {
+			projectById = projectDaoService.getProjectById(projectId);
+		} catch (ProjectNotFoundException | DataAccessException e) {
+			e.getMessage();
+		}
+		return projectById;
 	}
 
 	@Override
 	public Set<Project> getAllProjects() throws DataAccessException {
-		// TODO Auto-generated method stub
-		return null;
+			Set<Project> projects = null;
+			try {
+				projects = projectDaoService.getAllProjects();
+			} catch (DataAccessException e) {
+				e.getMessage();
+			}
+		return projects;
 	}
 
 	@Override
-	public Set<Project> getProjectsManagedByUser(int projectManagerID) throws DataAccessException {
-		// TODO Auto-generated method stub
-		return null;
+	public Set<Project> getProjectsManagedByUser(int projectManagerId) throws DataAccessException {
+		Set<Project> projectsByUser = null;
+		try {
+			projectsByUser = projectDaoService.getProjectsManagedByUser(projectManagerId);
+		} catch (DataAccessException e) {
+			e.getMessage();
+		}
+	return projectsByUser;
 	}
 
 	@Override
-	public Team getProjectTeam(int projectID) throws TeamNotFoundException, DataAccessException {
-		// TODO Auto-generated method stub
-		return null;
+	public Team getProjectTeam(int projectId) throws TeamNotFoundException, DataAccessException {
+		Team projectTeam = null;
+		try {
+			projectTeam = projectDaoService.getProjectTeam(projectId);
+			
+		}catch (TeamNotFoundException | DataAccessException e) {
+			e.getMessage();
+		}
+		return projectTeam;
 	}
 
 	@Override
-	public Set<Bug> getProjectBugs(int projectID) throws DataAccessException {
-		// TODO Auto-generated method stub
-		return null;
+	public Set<Bug> getProjectBugs(int projectId) throws DataAccessException {
+		Set<Bug> projectBugs = null;
+		try {
+			projectBugs = projectDaoService.getProjectBugs(projectId);
+		}catch(DataAccessException e){
+			e.getMessage();
+		}
+		return projectBugs;
 	}
 
 }
