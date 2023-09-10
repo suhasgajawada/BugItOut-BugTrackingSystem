@@ -22,13 +22,19 @@ public class UserServiceImpl implements UserService {
 	/**
 	 * 
 	 */
+	UserDao userDaoService= null;
+	
 	public UserServiceImpl() {
-		UserDao userDaoService = ObjectFactory.getUserDaoInstance();
+	 userDaoService = ObjectFactory.getUserDaoInstance();
 	}
 
 	@Override
 	public void createUser(User user) throws DataAccessException, InvalidDataException, UserAlreadyExistsException {
-		// TODO Auto-generated method stub
+		try {
+			userDaoService.createUser(user);
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
 
 	}
 

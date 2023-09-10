@@ -24,6 +24,7 @@ public class ProjectServiceImpl implements ProjectService {
 	/**
 	 * 
 	 */
+	ProjectDao projectDaoService = null;
 	public ProjectServiceImpl() {
 		ProjectDao projectDaoService = ObjectFactory.getProjectDaoInstance();
 	}

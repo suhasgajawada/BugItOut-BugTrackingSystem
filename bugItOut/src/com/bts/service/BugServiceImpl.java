@@ -23,8 +23,9 @@ public class BugServiceImpl implements BugService {
 	/**
 	 * 
 	 */
+	BugDao bugDaoService = null;
 	public BugServiceImpl() {
-		BugDao bugDaoService = ObjectFactory.getBugDaoInstance();
+		bugDaoService = ObjectFactory.getBugDaoInstance();
 	}
 
 	@Override
