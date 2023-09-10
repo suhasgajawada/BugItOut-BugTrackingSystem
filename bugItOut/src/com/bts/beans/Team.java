@@ -4,11 +4,18 @@ import java.util.Objects;
 
 public class Team {
 	private int teamId;
-	private int projectId;// dont know how to give 
-	//foreign key reference to Project , https://hellokoding.com/jpa-one-to-one-foreignkey-relationship-
-	//example-with-spring-boot-maven-and-mysql/HELPPPPP!
-	private int projectManagerId;
-	private int testerId;
+	private int projectId;
+	private int userId;
+	public Team(int teamId, int projectId, int userId) {
+		super();
+		this.teamId = teamId;
+		this.projectId = projectId;
+		this.userId = userId;
+	}
+	public Team() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 	/**
 	 * @return the teamId
 	 */
@@ -34,50 +41,20 @@ public class Team {
 		this.projectId = projectId;
 	}
 	/**
-	 * @return the projectManagerId
+	 * @param userId the userId to set
 	 */
-	public int getProjectManagerId() {
-		return projectManagerId;
+	public int getUserId() {
+		return userId;
 	}
-	/**
-	 * @param projectManagerId the projectManagerId to set
-	 */
-	public void setProjectManagerId(int projectManagerId) {
-		this.projectManagerId = projectManagerId;
-	}
-	/**
-	 * @return the testerId
-	 */
-	public int getTesterId() {
-		return testerId;
-	}
-	/**
-	 * @param testerId the testerId to set
-	 */
-	public void setTesterId(int testerId) {
-		this.testerId = testerId;
-	}
-	/**
-	 * @param teamId
-	 * @param projectId
-	 * @param projectManagerId
-	 * @param testerId
-	 */
-	public Team(int teamId, int projectId, int projectManagerId, int testerId) {
-		super();
-		this.teamId = teamId;
-		this.projectId = projectId;
-		this.projectManagerId = projectManagerId;
-		this.testerId = testerId;
-	}
-	@Override
-	public String toString() {
-		return "Team [teamId=" + teamId + ", projectId=" + projectId + ", projectManagerId=" + projectManagerId
-				+ ", testerId=" + testerId + "]";
+	public void setUserId(int userId) {
+		this.userId = userId;
 	}
 	@Override
 	public int hashCode() {
-		return Objects.hash(teamId);
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + teamId;
+		return result;
 	}
 	@Override
 	public boolean equals(Object obj) {
@@ -88,6 +65,10 @@ public class Team {
 		if (getClass() != obj.getClass())
 			return false;
 		Team other = (Team) obj;
-		return teamId == other.teamId;
+		if (teamId != other.teamId)
+			return false;
+		return true;
 	}
+	
+	
 }

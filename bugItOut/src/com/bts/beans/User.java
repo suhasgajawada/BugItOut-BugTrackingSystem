@@ -16,6 +16,7 @@ public class User {
 	private String email;
 	private UserType userType;
 	private String password;
+	private boolean loggedIn;
 	/**
 	 * @param userId
 	 * @param name
@@ -23,19 +24,20 @@ public class User {
 	 * @param userType
 	 * @param password
 	 */
-	public User(int userId, String name, String email, UserType userType, String password) {
+	public User(int userId, String name, String email, UserType userType, String password,boolean loggedIn) {
 		super();
 		this.userId = userId;
 		this.name = name;
 		this.email = email;
 		this.userType = userType;
 		this.password = password;
+		this.loggedIn = loggedIn;
 	}
 	// setters , getters and overriding toString methodd
 	@Override
 	public String toString() {
 		return "User [userId=" + userId + ", name=" + name + ", email=" + email + ", userType=" + userType
-				+ ", password=" + password + "]";
+				+ ", password=" + password + ", loggedIn=" + loggedIn + "]";
 	}
 	@Override
 	public int hashCode() {
@@ -51,6 +53,12 @@ public class User {
 			return false;
 		User other = (User) obj;
 		return userId == other.userId;
+	}
+	public boolean isLoggedIn() {
+		return loggedIn;
+	}
+	public void setLoggedIn(boolean loggedIn) {
+		this.loggedIn = loggedIn;
 	}
 	public int getUserId() {
 		return userId;
