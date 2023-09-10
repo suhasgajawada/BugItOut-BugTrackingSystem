@@ -8,14 +8,13 @@ import java.util.Set;
 import com.bts.beans.User;
 import com.bts.exceptions.AuthenticationException;
 import com.bts.exceptions.DataAccessException;
-import com.bts.exceptions.UserAlreadyExistsException;
 import com.bts.exceptions.UserNotFoundException;
 
 /**
  * 
  */
 public interface UserDao {
-	void createUser(User user) throws DataAccessException, UserAlreadyExistsException;
+	void createUser(User user) throws DataAccessException;
 	User getUserById(int userId) throws UserNotFoundException,DataAccessException;
 	User getUserByEmail(String email) throws UserNotFoundException ,DataAccessException;
 	User loginUser(String email,String password) throws AuthenticationException,DataAccessException;

@@ -25,75 +25,53 @@ public class UserServiceImpl implements UserService {
 	UserDao userDaoService= null;
 	
 	public UserServiceImpl() {
-		userDaoService = ObjectFactory.getUserDaoInstance();
+	 userDaoService = ObjectFactory.getUserDaoInstance();
 	}
 
 	@Override
-	public void createUser(User user) throws DataAccessException, /*InvalidDataException ,*/ UserAlreadyExistsException {
+	public void createUser(User user) throws DataAccessException, InvalidDataException, UserAlreadyExistsException {
 		try {
 			userDaoService.createUser(user);
-		} catch (DataAccessException | UserAlreadyExistsException e) {
-			e.getMessage();
+		} catch (Exception e) {
+			// TODO: handle exception
 		}
 
 	}
 
 	@Override
-	public User getUserByID(int userId) throws UserNotFoundException, DataAccessException {
-		User userById = null;
-		try {
-			userById=userDaoService.getUserById(userId);
-		}catch(UserNotFoundException|DataAccessException e ) {
-			e.getMessage();
-		}
-		return userById;
+	public User getUserByID(int userID) throws UserNotFoundException, DataAccessException {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	@Override
 	public User getUserByEmail(String email) throws UserNotFoundException, DataAccessException {
-		User userByEmail = null;
-		try {
-			userByEmail=userDaoService.getUserByEmail(email);
-		}catch(UserNotFoundException|DataAccessException e ) {
-			e.getMessage();
-		}
-		return userByEmail;
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	@Override
 	public User loginUser(String email, String password) throws AuthenticationException, DataAccessException {
-		User userLogin = null;
-		try {
-			userLogin = userDaoService.loginUser(email, password);
-		}catch(AuthenticationException | DataAccessException e) {
-			e.getMessage();
-		}
-		return userLogin;
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	@Override
 	public void logoutUser(int userID) throws DataAccessException {
-		try {
-			userDaoService.logoutUser(userID);
-		} catch (DataAccessException e) {
-			e.getMessage();
-		}
+		// TODO Auto-generated method stub
+
 	}
 
 	@Override
 	public void updateUserPassword(int userID, String newPassword) throws DataAccessException, InvalidDataException {
-		try {
-			userDaoService.updateUserPassword(userID, newPassword);
-		} catch (DataAccessException /*| InvalidDataException*/ e) {
-			e.getMessage();
-		}
+		// TODO Auto-generated method stub
 
 	}
 
 	@Override
 	public Set<User> getAllUsers() throws DataAccessException {
-		Set<User> users = userDaoService.getAllUsers();
-		return users;
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
