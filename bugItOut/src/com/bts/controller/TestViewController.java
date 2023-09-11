@@ -30,6 +30,7 @@ public class TestViewController {
         Scanner scanner = new Scanner(System.in);
 
         while (true) {
+        	System.out.println("Enter a value:");
             int choice = scanner.nextInt();
             scanner.nextLine(); // Consume the newline character
 
@@ -72,7 +73,7 @@ public class TestViewController {
                 System.out.println("Enter name: ");
                 name = scanner.next();
                 System.out.println("Enter role: ");
-                 role = scanner.nextInt();
+                role = scanner.nextInt();
                 System.out.println("Enter email: ");
                 email = scanner.next();
                 User user = new User(name, (role == 1)?UserType.projectManager:(role == 2)?UserType.tester:UserType.developer, email);

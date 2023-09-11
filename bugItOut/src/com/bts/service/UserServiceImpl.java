@@ -32,16 +32,26 @@ public class UserServiceImpl implements UserService {
 	public void createUser(User user) throws DataAccessException, InvalidDataException, UserAlreadyExistsException {
 		try {
 			userDaoService.createUser(user);
-		} catch (Exception e) {
-			// TODO: handle exception
+		} catch (DataAccessException e) {
+			throw new DataAccessException(e);
+		} catch(UserAlreadyExistsException e) {
+			throw new UserAlreadyExistsException(e);
 		}
 
 	}
 
 	@Override
-	public User getUserByID(int userID) throws UserNotFoundException, DataAccessException {
-		// TODO Auto-generated method stub
-		return null;
+
+	public User getUserById(int userId) throws UserNotFoundException, DataAccessException {
+		User userById = null;
+		try {
+			userById=userDaoService.getUserById(userId);
+		}catch(UserNotFoundException e ) {
+			throw new UserNotFoundException(e);
+		}catch(DataAccessException e) {
+			throw new DataAccessException(e);
+		}
+		return userById;
 	}
 
 	@Override
@@ -57,15 +67,21 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public void logoutUser(int userID) throws DataAccessException {
-		// TODO Auto-generated method stub
-
+	public void logoutUser(int userID) throws DataAccessException, AuthenticationException {
+		try {
+			userDaoService.logoutUser(userID);
+		} catch (DataAccessException |AuthenticationException e) {
+			e.getMessage();
+		}
 	}
 
 	@Override
-	public void updateUserPassword(int userID, String newPassword) throws DataAccessException, InvalidDataException {
-		// TODO Auto-generated method stub
-
+	public void updateUserPassword(String email, String newPassword) throws DataAccessException, InvalidDataException {
+		try {
+			userDaoService.updateUserPassword(email, newPassword);
+		} catch (DataAccessException /*| InvalidDataException*/ e) {
+			e.getMessage();
+		}
 	}
 
 	@Override

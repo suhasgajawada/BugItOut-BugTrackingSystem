@@ -3,6 +3,7 @@
  */
 package com.bts.beans;
 
+import java.time.LocalDateTime;
 import java.util.Objects;
 
 import com.bts.beans.enums.UserType;
@@ -17,6 +18,58 @@ public class User {
 	private UserType userType;
 	private String password;
 	private boolean loggedIn;
+	private LocalDateTime lastLoginTime;
+	
+	/**
+	 * @return the loggedIn
+	 */
+	public boolean isLoggedIn() {
+		return loggedIn;
+	}
+	/**
+	 * @param loggedIn the loggedIn to set
+	 */
+	public void setLoggedIn(boolean loggedIn) {
+		this.loggedIn = loggedIn;
+	}
+	/**
+	 * @param userId
+	 * @param name
+	 * @param email
+	 * @param userType
+	 */
+	public User(int userId, String name, String email, UserType userType) {
+		super();
+		this.userId = userId;
+		this.name = name;
+		this.email = email;
+		this.userType = userType;
+	}
+	/**
+	 * @param name
+	 * @param email
+	 * @param userType
+	 */
+	public User(String name, String email, UserType userType) {
+		super();
+		this.name = name;
+		this.email = email;
+		this.userType = userType;
+	}
+	
+
+	/**
+	 * @return the lastLoginTime
+	 */
+	public LocalDateTime getLastLoginTime() {
+		return lastLoginTime;
+	}
+	/**
+	 * @param lastLoginTime the lastLoginTime to set
+	 */
+	public void setLastLoginTime(LocalDateTime lastLoginTime) {
+		this.lastLoginTime = lastLoginTime;
+	}
 	/**
 	 * @param userId
 	 * @param name
@@ -53,12 +106,6 @@ public class User {
 			return false;
 		User other = (User) obj;
 		return userId == other.userId;
-	}
-	public boolean isLoggedIn() {
-		return loggedIn;
-	}
-	public void setLoggedIn(boolean loggedIn) {
-		this.loggedIn = loggedIn;
 	}
 	public int getUserId() {
 		return userId;
