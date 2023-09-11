@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Project</title>
+    <!-- Add Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Add your custom CSS here -->
+    <style>
+        /* Define your custom styles here */
+        body {
+            background-color: #fff; /* White background */
+        }
+        .container {
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Create a New Project</h1>
+        <form id="project-form">
+            <div class="form-group">
+                <label for="projectName">Project Name</label>
+                <input type="text" class="form-control" id="projectName" placeholder="Project Name" required>
+            </div>
+            <div class="form-group">
+                <label for="startDate">Start Date</label>
+                <input type="date" class="form-control" id="startDate" required>
+            </div>
+            <div class="form-group">
+                <label for="projectDescription">Project Description</label>
+                <textarea class="form-control" id="projectDescription" rows="4" placeholder="Project Description"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="teamRole">Assign team members to the project</label>
+                <select class="form-control" id="teamRole">
+                    <option value="Developer">Developer</option>
+                    <option value="Tester">Tester</option>
+                </select>
+            </div>
+            <button type="button" class="btn btn-primary" id="showMembers">Show Members</button>
+        </form>
+        <div id="memberList"></div>
+        <button type="button" class="btn btn-primary" id="selectMembers" style="display:none;">Select</button>
+    </div>
+
+    <!-- Add Bootstrap and jQuery JS (for Bootstrap functionality) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        var selectedMembers = []; // To store selected members
+
+        // JavaScript to handle showing members based on selected role
+        document.getElementById('showMembers').addEventListener('click', function () {
+            var role = document.getElementById('teamRole').value;
+            var memberList = document.getElementById('memberList');
+            
+            // You can replace the sample member lists with actual data
+            var developerList = ['Aditi', 'Raghav', 'Ritwika'];
+            var testerList = ['Abishek'];
+
+            var listToShow = role === 'Developer' ? developerList : testerList;
+
+            var listHtml = '<h3>Select ' + role + 's:</h3>';
+            for (var i = 0; i < listToShow.length; i++) {
+                listHtml += '<div class="form-check">';
+                listHtml += '<input class="form-check-input" type="checkbox" value="' + listToShow[i] + '" id="' + listToShow[i] + '">';
+                listHtml += '<label class="form-check-label" for="' + listToShow[i] + '">' + listToShow[i] + '</label>';
+                listHtml += '</div>';
+            }
+
+            listHtml += '<button type="button" class="btn btn-primary" id="selectMembers">Select</button>';
+            memberList.innerHTML = listHtml;
+
+            // Show the Select button
+            document.getElementById('selectMembers').style.display = 'block';
+        });
+
+        // JavaScript to handle selecting members and displaying a pop-up message
+        document.getElementById('selectMembers').addEventListener('click', function () {
+            var checkboxes = document.querySelectorAll('.form-check-input:checked');
+            selectedMembers = Array.from(checkboxes).map(function (checkbox) {
+                return checkbox.value;
+            });
+
+            var popMessage = '';
+            if (selectedMembers.length > 0) {
+                popMessage = 'Assigned to Project';
+            } else {
+                popMessage = 'Please select to assign';
+            }
+
+            // Display the pop-up message
+            alert(popMessage);
+        });
+
+        // JavaScript to set the minimum date for the start date input
+        var today = new Date();
+        today.setDate(today.getDate() + 2); // Add 2 days to the current date
+        var minDate = today.toISOString().split('T')[0];
+        document.getElementById('startDate').setAttribute('min', minDate);
+    </script>
+</body>
+</html>
