@@ -3,6 +3,7 @@
  */
 package com.bts.beans;
 
+import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
@@ -18,7 +19,7 @@ public class User {
 	private UserType userType;
 	private String password;
 	private boolean loggedIn;
-	private LocalDateTime lastLoginTime;
+	private Timestamp lastLoginTime;
 	
 	/**
 	 * @return the loggedIn
@@ -50,7 +51,7 @@ public class User {
 	 * @param email
 	 * @param userType
 	 */
-	public User(String name, String email, UserType userType) {
+	public User(String name, UserType userType,String email) {
 		super();
 		this.name = name;
 		this.email = email;
@@ -59,15 +60,22 @@ public class User {
 	
 
 	/**
-	 * @return the lastLoginTime
+	 * @param userId
+	 * @param name
+	 * @param email
+	 * @param userType
+	 * @param password
+	 * @param loggedIn
+	 * @param lastLoginTime
 	 */
-	public LocalDateTime getLastLoginTime() {
-		return lastLoginTime;
-	}
-	/**
-	 * @param lastLoginTime the lastLoginTime to set
-	 */
-	public void setLastLoginTime(LocalDateTime lastLoginTime) {
+	public User(int userId, String name, String email, boolean loggedIn,UserType userType,
+			Timestamp lastLoginTime) {
+		super();
+		this.userId = userId;
+		this.name = name;
+		this.email = email;
+		this.userType = userType;
+		this.loggedIn = loggedIn;
 		this.lastLoginTime = lastLoginTime;
 	}
 	/**
@@ -77,24 +85,37 @@ public class User {
 	 * @param userType
 	 * @param password
 	 */
-	public User(int userId, String name, String email, UserType userType, String password,boolean loggedIn) {
+	public User(int userId, String name, String email,boolean loggedIn, UserType userType) {
 		super();
 		this.userId = userId;
 		this.name = name;
 		this.email = email;
 		this.userType = userType;
-		this.password = password;
 		this.loggedIn = loggedIn;
 	}
 	// setters , getters and overriding toString methodd
-	@Override
-	public String toString() {
-		return "User [userId=" + userId + ", name=" + name + ", email=" + email + ", userType=" + userType
-				+ ", password=" + password + ", loggedIn=" + loggedIn + "]";
-	}
+	
 	@Override
 	public int hashCode() {
 		return Objects.hash(userId);
+	}
+	@Override
+	public String toString() {
+		return "User [userId=" + userId + ", name=" + name + ", email=" + email + ", userType=" + userType
+				+ ", loggedIn=" + loggedIn + ", lastLoginTime=" + lastLoginTime + "]";
+	}
+
+	/**
+	 * @return the lastLoginTime
+	 */
+	public Timestamp getLastLoginTime() {
+		return lastLoginTime;
+	}
+	/**
+	 * @param lastLoginTime the lastLoginTime to set
+	 */
+	public void setLastLoginTime(Timestamp lastLoginTime) {
+		this.lastLoginTime = lastLoginTime;
 	}
 	@Override
 	public boolean equals(Object obj) {

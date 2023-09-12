@@ -10,6 +10,7 @@ import com.bts.exceptions.AuthenticationException;
 import com.bts.exceptions.DataAccessException;
 import com.bts.exceptions.InvalidDataException;
 import com.bts.exceptions.UserAlreadyExistsException;
+import com.bts.exceptions.UserAlreadyRegisteredException;
 import com.bts.exceptions.UserNotFoundException;
 
 /**
@@ -24,5 +25,6 @@ public interface UserService {
     void logoutUser(int userID) throws DataAccessException, AuthenticationException;
     void updateUserPassword(String email, String newPassword) throws DataAccessException, InvalidDataException;
     Set<User> getAllUsers() throws DataAccessException;
+	void registerUser(String email, String password)throws UserAlreadyRegisteredException,DataAccessException, UserAlreadyRegisteredException, UserNotFoundException;
 
 }

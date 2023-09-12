@@ -11,6 +11,7 @@ import java.sql.SQLIntegrityConstraintViolationException;
 import java.sql.Statement;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
+import java.util.HashSet;
 import java.util.Set;
 
 import com.bts.beans.User;
@@ -19,6 +20,7 @@ import com.bts.dao.util.DbConnection;
 import com.bts.exceptions.AuthenticationException;
 import com.bts.exceptions.DataAccessException;
 import com.bts.exceptions.UserAlreadyExistsException;
+import com.bts.exceptions.UserAlreadyRegisteredException;
 import com.bts.exceptions.UserNotFoundException;
 
 /**
@@ -62,11 +64,15 @@ public class UserDaoImpl implements UserDao {
 			statement.setInt(1, userId);
 			ResultSet resultSet = statement.executeQuery();
 			if(resultSet.next()) {
-				user = new User(resultSet.getInt("UserId"),resultSet.getString("Name"),
-						resultSet.getString("email"),UserType.valueOf(resultSet.getString("userType")));
-			}else  {
+				user = new User(resultSet.getInt(1), resultSet.getString(2),resultSet.getString(3),
+						resultSet.getBoolean(5),UserType.valueOf(resultSet.getString(6)));
+			
+			}else {
 				throw new UserNotFoundException("User Not Found with Id "+userId);
 			}
+			resultSet.close();
+			statement.close();
+			
 		} catch (SQLException e) {
 			throw new DataAccessException("Data Access failed ");
 		}
@@ -82,42 +88,50 @@ public class UserDaoImpl implements UserDao {
 			statement.setString(1, email);
 			ResultSet resultSet = statement.executeQuery();
 			if(resultSet.next()) {
-				user = new User(resultSet.getInt("UserId"),resultSet.getString("Name"),
-						resultSet.getString("email"),UserType.valueOf(resultSet.getString("userType")));
+				user = new User(resultSet.getInt(1), resultSet.getString(2),resultSet.getString(3),
+						resultSet.getBoolean(5),UserType.valueOf(resultSet.getString(6))/*,resultSet.getTimestamp(7).toLocalDateTime()*/);
+				user.setPassword(resultSet.getString(4));
 			}else  {
 				throw new UserNotFoundException("User Not Found with email "+email);
 			}
+			resultSet.close();
+			statement.close();
 		} catch (SQLException e) {
 			throw new DataAccessException("Data Access failed ");
 		}
 		return user;
 	}
 
-	
-
 	@Override
 	public User loginUser(String email, String password) throws AuthenticationException, DataAccessException {
 		User user= null;
 		try {
-			String sqlQuery = "select*from users where email=? ";
-			PreparedStatement statement = connection.prepareStatement(sqlQuery);
-			statement.setString(1, email);
-			ResultSet resultSet = statement.executeQuery();
-			if(resultSet.next()) {
-				if(resultSet.getString(4)==null) {
+			User userByEmail = getUserByEmail(email);
+			if(userByEmail!=null) {
+			
+				if(userByEmail.getPassword()== null) {
 					throw new AuthenticationException("User Not Registered");
 				}
-				else if(resultSet.getString(4)==password) {
-					user = new User(resultSet.getInt(1),resultSet.getString(2),resultSet.getString(3),UserType.valueOf(resultSet.getString(6)));
+				else if(userByEmail.getPassword().equals(password)) {
+					user = userByEmail;
+					user.setLoggedIn(true);
+					String sqlQuery="update users set loggedIn = ? where email = ?";
+					PreparedStatement statement = connection.prepareStatement(sqlQuery);
+					statement.setBoolean(1, true);
+					statement.setString(2, email);
+					statement.executeUpdate();
+					statement.close();
 				}
 			}
 			else {
 				throw new AuthenticationException("Unable to login User");
 			}
-		} catch (SQLException e) {
+				
+		}catch (SQLException e) {
 				throw new DataAccessException("Unable to Access Data");
+		}catch(UserNotFoundException e) {
+			throw new AuthenticationException("User not imported");
 		}
-		user.setLoggedIn(true);;
 		return user;
 	}
 
@@ -125,36 +139,75 @@ public class UserDaoImpl implements UserDao {
 	public void logoutUser(int userId) throws DataAccessException, AuthenticationException{
 		
 		try {
-			String sqlQuery ="select loggedIn from users where userId =?";
-			PreparedStatement statment = connection.prepareStatement(sqlQuery);
-			statment.setInt(1, userId);
-			ResultSet resultSet= statment.executeQuery();
-			if(resultSet.getBoolean(1)) {
-				String sqlQuery1 = "update users set lastLoginTime = ? where userId =?";
-				PreparedStatement statement1 = connection.prepareStatement(sqlQuery1);
-				statement1.setTimestamp(1,Timestamp.valueOf(LocalDateTime.now()));
-				statement1.setInt(2,userId);
-				statement1.executeUpdate();
+			User user = getUserById(userId);
+			if(user.isLoggedIn()) {
+				String sqlQuery1 = "update users set lastLoginTime = ?, loggedIn = ? where userId =?";
+				PreparedStatement statement = connection.prepareStatement(sqlQuery1);
+				statement.setTimestamp(1,Timestamp.valueOf(LocalDateTime.now()));
+				statement.setBoolean(2, false);
+				statement.setInt(3,userId);
+				statement.executeUpdate();
+				statement.close();
 			}else {
 				throw new AuthenticationException("userId invalid");
 			}
 			
 		} catch (SQLException e) {
 				throw new DataAccessException("Unable to Access data");
+		}catch (UserNotFoundException e) {
+			throw new AuthenticationException("userId invalid");
 		}
 
 	}
 
 	@Override
 	public void updateUserPassword(String email, String newPassword) throws DataAccessException {
-		// TODO Auto-generated method stub
+		try {
+			String sqlQuery1 = "update users set password = ? where email =?";
+			PreparedStatement statement = connection.prepareStatement(sqlQuery1);
+			statement.setString(1,newPassword);
+			statement.setString(2, email);
+			statement.executeUpdate();
+			
+			statement.close();
+		} catch (SQLException e) {
+			throw new DataAccessException("Unable to Access Data");
+		}
 
 	}
 
 	@Override
 	public Set<User> getAllUsers() throws DataAccessException {
-		// TODO Auto-generated method stub
-		return null;
+		Set<User> users= new HashSet<>();
+		try {
+			String sqlQuery = "select * from users";
+			PreparedStatement statement = connection.prepareStatement(sqlQuery);
+			ResultSet resultSet = statement.executeQuery();
+			while(resultSet.next()) {
+				users.add(new User(resultSet.getInt(1), resultSet.getString(2),resultSet.getString(3),
+						resultSet.getBoolean(5),UserType.valueOf(resultSet.getString(6)), resultSet.getTimestamp("lastLoginTime")));
+			}
+		} catch (SQLException e) {
+			throw new DataAccessException(" Unable to access the data ");
+		}
+		return users;
+	}
+
+	@Override
+	public void registerUser(String email, String password) throws UserAlreadyRegisteredException, DataAccessException, UserNotFoundException {
+		try {
+			User user= getUserByEmail(email);
+			if(user.getPassword()!=null) {
+				throw  new UserAlreadyRegisteredException("User with email "+email+" already Registored , please proceed to login");
+			}else {
+				updateUserPassword(email, password);
+			}
+		} catch (DataAccessException  e) {
+				throw new DataAccessException(e);
+		}catch(UserNotFoundException e) {
+			throw new UserNotFoundException("user not imported with this email "+email);
+		}
+		
 	}
 
 }
