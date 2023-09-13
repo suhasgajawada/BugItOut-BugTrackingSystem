@@ -3,6 +3,7 @@
  */
 package com.bts.beans;
 
+import java.sql.Date;
 import java.time.LocalDate;
 import java.util.Objects;
 
@@ -12,6 +13,7 @@ import com.bts.beans.enums.ProjectStatus;
  * 
  */
 public class Project {
+	private int userId;
 	private int projectId;
 	private String projectName;
 	private String description;
@@ -63,11 +65,28 @@ public class Project {
 		return projectId == other.projectId;
 	}
 	/**
+	 * @param status2 
+	 * @param startDate2 
+	 * @param description2 
+	 * @param projectName2 
+	 * @param projectId2 
 	 * 
 	 */
-	public Project() {
+	
+	/**
+	 * @param projectId
+	 * @param projectName
+	 * @param description
+	 * @param startDate
+	 * @param status
+	 */
+	public Project(int userId,String projectName, String description, LocalDate startDate, ProjectStatus status) {
 		super();
-		// TODO Auto-generated constructor stub
+		this.userId=userId;
+		this.projectName = projectName;
+		this.description = description;
+		this.startDate = startDate;
+		this.status = status;
 	}
 	/**
 	 * @param projectId
@@ -76,17 +95,46 @@ public class Project {
 	 * @param startDate
 	 * @param status
 	 */
-	public Project(String projectName, String description, LocalDate startDate, ProjectStatus status) {
+	/**
+	 * 
+	 */
+	public Project() {
 		super();
+	}
+	/**
+	 * @param userId
+	 * @param projectId
+	 * @param projectName
+	 * @param description
+	 * @param startDate
+	 * @param status
+	 */
+	public Project(int userId, int projectId, String projectName, String description, LocalDate startDate,
+			ProjectStatus status) {
+		super();
+		this.userId = userId;
+		this.projectId = projectId;
 		this.projectName = projectName;
 		this.description = description;
 		this.startDate = startDate;
 		this.status = status;
 	}
+	/**
+	 * @return the userId
+	 */
+	public int getUserId() {
+		return userId;
+	}
+	/**
+	 * @param userId the userId to set
+	 */
+	public void setUserId(int userId) {
+		this.userId = userId;
+	}
 	@Override
 	public String toString() {
-		return "Project [projectId=" + projectId + ", projectName=" + projectName + ", description=" + description
-				+ ", startDate=" + startDate + ", status=" + status + "]";
+		return "Project [ projectId=" + projectId + ", projectName=" + projectName
+				+ ", description=" + description + ", startDate=" + startDate + ", status=" + status + "]";
 	}
 
 }

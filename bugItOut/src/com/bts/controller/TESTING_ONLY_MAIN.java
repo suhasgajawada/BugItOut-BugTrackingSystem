@@ -1,10 +1,15 @@
 package com.bts.controller;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Scanner;
 
+import com.bts.beans.Project;
 import com.bts.beans.User;
+import com.bts.beans.enums.ProjectStatus;
 import com.bts.beans.enums.UserType;
+import com.bts.dao.ProjectDao;
+import com.bts.dao.ProjectDaoImpl;
 import com.bts.exceptions.AuthenticationException;
 import com.bts.exceptions.DataAccessException;
 import com.bts.exceptions.InvalidDataException;
@@ -22,6 +27,7 @@ public class TESTING_ONLY_MAIN {
     static ProjectService projectService = ObjectFactory.getProjectServiceInstace();
     static BugService bugService = ObjectFactory.getBugServiceInstance();
     static TeamService teamService = ObjectFactory.getTeamServiceInstance();
+    static ProjectDao projectDao = new ProjectDaoImpl();
     
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
@@ -81,7 +87,7 @@ public class TESTING_ONLY_MAIN {
                     	try{
                     		userService.registerUser(email1, password);
                     	}catch(UserAlreadyRegisteredException e) {
-                    		 System.out.println( e.getMessage());
+                    		 System.err.println( e.getMessage());
                     	}
                     	break;
                     case 5:
@@ -111,6 +117,17 @@ public class TESTING_ONLY_MAIN {
                     case 7:
                     	try {
                     	System.out.println(userService.getAllUsers());
+                    	}catch(DataAccessException e) {
+                    		System.out.println(e.getMessage());
+                    	}
+                    	break;
+                    case 8:
+                    	Project project = new Project(3,"JDBC"," this is jdbc",LocalDate.now(),ProjectStatus.inProgress);
+                    		System.out.println(project);
+                    	try {
+//                    		Project project =projectDao.getProjectById(2);
+//                    		System.out.println(project);
+                    	projectDao.createProject(project);
                     	}catch(DataAccessException e) {
                     		System.out.println(e.getMessage());
                     	}

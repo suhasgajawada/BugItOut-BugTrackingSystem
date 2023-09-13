@@ -100,6 +100,21 @@ public class Bug {
 		this.status = status;
 		this.severity = severity;
 	}
+	/**
+	 * @param bugId
+	 * @param title
+	 * @param description
+	 * @param openDate2
+	 * @param status
+	 */
+	public Bug(int bugId, String title, String description, LocalDateTime openDate2, BugStatus status) {
+		super();
+		this.bugId = bugId;
+		this.title = title;
+		this.description = description;
+		this.openDate = openDate2;
+		this.status = status;
+	}
 	@Override
 	public String toString() {
 		return "Bug [bugId=" + bugId + ", title=" + title + ", description=" + description + ", projectId=" + projectId

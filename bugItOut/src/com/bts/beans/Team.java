@@ -3,12 +3,12 @@ package com.bts.beans;
 import java.util.Objects;
 
 public class Team {
-	private int teamId;
+	
 	private int projectId;
 	private int userId;
-	public Team(int teamId, int projectId, int userId) {
+	public Team( int projectId, int userId) {
 		super();
-		this.teamId = teamId;
+		
 		this.projectId = projectId;
 		this.userId = userId;
 	}
@@ -19,15 +19,6 @@ public class Team {
 	/**
 	 * @return the teamId
 	 */
-	public int getTeamId() {
-		return teamId;
-	}
-	/**
-	 * @param teamId the teamId to set
-	 */
-	public void setTeamId(int teamId) {
-		this.teamId = teamId;
-	}
 	/**
 	 * @return the projectId
 	 */
@@ -49,12 +40,10 @@ public class Team {
 	public void setUserId(int userId) {
 		this.userId = userId;
 	}
+
 	@Override
 	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + teamId;
-		return result;
+		return Objects.hash(userId);
 	}
 	@Override
 	public boolean equals(Object obj) {
@@ -65,10 +54,13 @@ public class Team {
 		if (getClass() != obj.getClass())
 			return false;
 		Team other = (Team) obj;
-		if (teamId != other.teamId)
-			return false;
-		return true;
+		return userId == other.userId;
 	}
+	@Override
+	public String toString() {
+		return "Team [userId=" + userId + "]";
+	}
+	
 	
 	
 }

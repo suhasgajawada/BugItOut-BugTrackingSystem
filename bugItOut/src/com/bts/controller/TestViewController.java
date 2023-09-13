@@ -212,6 +212,8 @@ public class TestViewController {
 	}
 
 	private static void createProject(Scanner scanner) {
+		System.out.println("Enter your UserID:");
+		int userId = scanner.nextInt()
 		System.out.println("Enter Project Name :");
 		String projectName = scanner.next();
 		System.out.println("Enter Project Descrtiption :");
@@ -219,7 +221,7 @@ public class TestViewController {
 		System.out.println("Enter Start Date (yyyy-mm-dd) :");
 		String startDate = scanner.next();
 		try {
-			projectService.createProject(new Project(projectName, description, LocalDate.parse(startDate), ProjectStatus.inProgress));
+			projectService.createProject(new Project(userId,projectName, description, LocalDate.parse(startDate), ProjectStatus.inProgress));
 		} catch (DataAccessException | InvalidDataException | ProjectManagerLimitExceededException e) {
 			System.err.println(e.getMessage());
 		}
