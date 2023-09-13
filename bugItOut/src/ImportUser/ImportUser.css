@@ -1,0 +1,89 @@
+body{
+    background-color: rgb(11, 135, 184) ;
+    display: flex;
+    justify-content: center;
+    /* margin-top: 100px; */
+    
+}
+.back p img{
+    position: absolute;
+    left: 20px;
+    top: 20px;
+    width: 24px;
+    background-color: rgb(11, 135, 184) ;
+
+}
+.back p p1{
+
+    position: fixed;
+    left: 50px;
+    top :20px;
+    color: white;
+    font-weight: 600;
+
+}
+
+.import{
+    width: 1080px;
+    height: 500px;
+    background-color:white;
+    border-radius: 2%;
+    display: flex;
+    margin-top: 100px;
+}
+.import-gif{
+    width: 50%;
+    
+}
+.import-gif img{
+    width : 500px;
+}
+.import-details{
+    width: 50%;
+    display: flex;
+    align-items: center;
+    /* justify-content: space-around; */
+    flex-direction: column;
+    height: 100%;
+
+    
+}
+.import-details h2{
+    height : 50px;
+}
+.import-details form input{
+
+    width: 350px;
+    background-color: lightcyan;
+    border: 0px;
+    padding: 15px;
+}
+.import-details form button[type="button"]{
+    background-color: rgb(24, 24, 235);
+    width: 180px;
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif; 
+    height : 40px;
+    border-radius: 5%;
+    border-color: rgb(24, 24, 235);
+    padding: 10px;
+    
+}
+
+.import-details form{
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    
+}
+
+
+
+
+
+
+    
+    
+    
+

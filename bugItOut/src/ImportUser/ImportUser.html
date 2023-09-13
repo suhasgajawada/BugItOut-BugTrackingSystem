@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type = "text/css" rel = "stylesheet" href = 'ImportUser.css'>
+    <title>Import user</title>
+    
+</head>
+<body>
+    <div class = "back" > 
+
+        
+        
+            <div class="import ">
+                
+                <div class = "import-gif">
+                    <img src="register.gif" alt="alternatetext">
+                </div> 
+                <div class = "import-details">
+                    <h2> Import User </h2> 
+                    <p2> Enter the details correctly, we use the same details for further application </p2> <br>
+                    <form >
+                        <input type = "text" placeholder= "Full name" id = "name" name = "na" required> <br>
+                        <input placeholder= "type" id = "role" name = "ty" required > <br>
+                        <input placeholder= "email" id = "email" name = "em" required unique > <br>
+
+                        <!--<button type="button" onclick="storeData()">Import User</button> -->
+
+                        <button type="button" id="submitButton">Import User</button>
+
+                    </form>
+                </div>
+            </div>
+    </div>
+    <script src="ImportUser.js"></script>
+</body>
+</html>

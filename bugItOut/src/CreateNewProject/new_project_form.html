@@ -43,7 +43,8 @@
             <button type="button" class="btn btn-primary" id="showMembers">Show Members</button>
         </form>
         <div id="memberList"></div>
-        <button type="button" class="btn btn-primary" id="selectMembers" style="display:none;">Select</button>
+        <button type="submit" class="btn btn-primary" id="selectMembers" style="display: none;">Select</button>
+        
     </div>
 
     <!-- Add Bootstrap and jQuery JS (for Bootstrap functionality) -->
@@ -78,24 +79,25 @@
 
             // Show the Select button
             document.getElementById('selectMembers').style.display = 'block';
-        });
+        
 
-        // JavaScript to handle selecting members and displaying a pop-up message
-        document.getElementById('selectMembers').addEventListener('click', function () {
-            var checkboxes = document.querySelectorAll('.form-check-input:checked');
-            selectedMembers = Array.from(checkboxes).map(function (checkbox) {
-                return checkbox.value;
+            // JavaScript to handle selecting members and displaying a pop-up message
+            document.getElementById('selectMembers').addEventListener('click', function () {
+                var checkboxes = document.querySelectorAll('.form-check-input:checked');
+                selectedMembers = Array.from(checkboxes).map(function (checkbox) {
+                    return checkbox.value;
+                });
+
+                var popMessage = '';
+                if (selectedMembers.length > 0) {
+                    popMessage = 'Assigned to Project';
+                } else {
+                    popMessage = 'Please select to assign';
+                }
+
+                // Display the pop-up message
+                alert(popMessage);
             });
-
-            var popMessage = '';
-            if (selectedMembers.length > 0) {
-                popMessage = 'Assigned to Project';
-            } else {
-                popMessage = 'Please select to assign';
-            }
-
-            // Display the pop-up message
-            alert(popMessage);
         });
 
         // JavaScript to set the minimum date for the start date input

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type = "text/css" rel = "stylesheet" href = 'registerUser.css'>
+    <title> Register User </title>
+</head>
+<body>
+    <div class="preloader">
+        <div class="loader">
+            <div class="loading-text"></div>
+        </div>
+    </div>
+    <div class ="register-page">
+        <div class = "box">
+            <div class = "register">
+
+                <div class = "register-gif">
+                    <img src="import.gif" alt="register">
+                </div>
+
+                <div class="register-data">
+                    <form action="registerUser.html" method="post">
+                        <input type="email" name = "email" id = "email" placeholder="Email" required> <br>
+                        <input type="text" name = "type" id = "type" placeholder="Role" required> <br>
+                        <input type="password" id="password" placeholder="Password" required> <br>
+                    
+                        <input type="password" id="confirmPassword" placeholder="Confirm Password" required> <br>
+                    
+                        <button type="button" onclick="checkPasswords()">Register </button>
+                    </form>
+                        
+                </div>
+
+
+
+
+            </div> 
+        </div>
+    </div>    
+    
+    <script src="registerUser.js"></script>
+</body>
+</html>

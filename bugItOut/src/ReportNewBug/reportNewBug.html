@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" charset = "ISO-8859-1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type = "text/css" rel = "stylesheet" href = 'reportNewBug.css'>
+    <title>Report a new bug</title>
+</head>
+<body>
+    <div class = "box">
+        <div class = "report-main">
+            <div class = "report-body">
+                <form action="#" method="POST" id="bug-report-form">
+                    <label for="project-title">Project Title:</label>
+                    <input type="text" id="project-title" name="project-title" required><br><br>
+            
+                    <label for="bug-title">Bug Title:</label>
+                    <input type="text" id="bug-title" name="bug-title" required><br><br>
+            
+                    <label for="description">Description:</label><br>
+                    <textarea id="description" name="description" rows="4" cols="50" required></textarea><br><br>
+            
+                    <label for="severity-level">Severity Level:</label>
+                    <select id="severity-level" name="severity-level" required>
+                        <option value="Low">Low</option>
+                        <option value="Medium">Medium</option>
+                        <option value="High">High</option>
+                    </select><br><br>
+            
+                    <input type="submit" value="submit" onclick="submitBugReport()">
+                </form>
+
+
+            </div>
+        </div>
+
+    </div>
+    <script src="reportNewBug.js"></script>
+</body>
+</html>

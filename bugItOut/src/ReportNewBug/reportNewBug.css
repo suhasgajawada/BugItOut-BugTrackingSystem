@@ -1,0 +1,63 @@
+body{
+    background-color: rgb(11, 135, 184) ;
+    display: flex;
+    justify-content: center;
+    
+    
+}
+.report-main{
+    width: 1080px;
+    height: 500px;
+    background-color:white;
+    border-radius: 2%;
+    display: flex;
+    margin-top: 100px;
+    /* justify-content: center; */
+    align-items: center;
+}
+.report-body form{
+    margin-left: 50px;
+    width: 300px;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-left: 300px;
+}
+/* .report-body form input{
+    width: 500px;
+    
+} */
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input[type="text"],
+textarea,
+select {
+    width: 100%;
+    padding: 1px;
+    margin-bottom: 1px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+.report-body form [type="submit"]{
+    background-color: rgb(24, 24, 235);
+    width: 150px;
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif; 
+    height : 40px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-weight: bold;
+}
+input[type="submit"]:hover {
+    background-color: #057af7;
+}
+input[type="submit"] {
+    display: block;
+    margin: 0 auto;
+}
