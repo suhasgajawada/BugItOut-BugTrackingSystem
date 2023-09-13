@@ -76,9 +76,8 @@ public class Project {
 	 * @param startDate
 	 * @param status
 	 */
-	public Project(int projectId, String projectName, String description, LocalDate startDate, ProjectStatus status) {
+	public Project(String projectName, String description, LocalDate startDate, ProjectStatus status) {
 		super();
-		this.projectId = projectId;
 		this.projectName = projectName;
 		this.description = description;
 		this.startDate = startDate;

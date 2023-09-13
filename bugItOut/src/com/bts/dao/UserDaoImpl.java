@@ -27,7 +27,16 @@ import com.bts.exceptions.UserNotFoundException;
  * 
  */
 public class UserDaoImpl implements UserDao {
-	Connection connection = DbConnection.getConnection();
+	Connection connection;
+	public UserDaoImpl() throws ClassNotFoundException, SQLException {
+		try {
+			connection = DbConnection.getConnection();
+		} catch (ClassNotFoundException e) {
+			throw new ClassNotFoundException(e.getMessage());
+		}catch (SQLException e) {
+			throw new SQLException(e.getMessage());
+		}
+	}
 	@Override
 	public void createUser(User user) throws DataAccessException ,UserAlreadyExistsException {
 		PreparedStatement statement = null;

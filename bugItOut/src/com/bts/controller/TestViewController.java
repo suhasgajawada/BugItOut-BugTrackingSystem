@@ -1,11 +1,15 @@
 package com.bts.controller;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 import java.util.Set;
 
+import com.bts.beans.Bug;
 import com.bts.beans.Project;
 import com.bts.beans.User;
+import com.bts.beans.enums.BugStatus;
 import com.bts.beans.enums.ProjectStatus;
 import com.bts.beans.enums.UserType;
 import com.bts.exceptions.AuthenticationException;
@@ -13,6 +17,7 @@ import com.bts.exceptions.DataAccessException;
 import com.bts.exceptions.InvalidDataException;
 import com.bts.exceptions.ProjectManagerLimitExceededException;
 import com.bts.exceptions.UserAlreadyExistsException;
+import com.bts.exceptions.UserAlreadyRegisteredException;
 import com.bts.exceptions.UserNotFoundException;
 import com.bts.service.BugService;
 import com.bts.service.ProjectService;
@@ -94,7 +99,11 @@ public class TestViewController {
         email = scanner.next();
         System.out.println("Enter password: ");
         password = scanner.next();
-        userService.registerUser(email, password);
+        try {
+			userService.registerUser(email, password);
+		} catch (UserAlreadyRegisteredException | DataAccessException | UserNotFoundException e) {
+			e.printStackTrace();
+		}
     }
     
     private static void loginUser(Scanner scanner)
@@ -130,7 +139,6 @@ public class TestViewController {
         System.out.println("Project Manager Menu");
         System.out.println("1. Create Project");
         System.out.println("2. View Projects");
-        System.out.println("3. View Bugs");
         System.out.print("Enter your choice: ");
 
         int choice = scanner.nextInt();
@@ -153,7 +161,34 @@ public class TestViewController {
 
     private static void viewBugs(int projectId) {
 		try {
-			bugService.getBugsByProjectID(projectId);
+			Set<Bug> bugs = bugService.getBugsByProjectID(projectId);
+			System.out.println("Here are all the bugs!!");
+			List<Integer> unassigned = new ArrayList<Integer>();
+			List<Integer> markedForClose = new ArrayList<Integer>();
+			List<Integer> inProgress = new ArrayList<Integer>();
+			for(Bug b : bugs)
+			{
+				System.out.println("Bug Name : " + b.getTitle());
+				System.out.println("Bug ID :" + b.getBugId());
+				if(b.getAssignedTo() == 0)
+				{
+					System.out.println("Bug needs to be assigned");
+					unassigned.add(b.getBugId());
+				}
+				else if(b.isMarkedForClosing())
+				{
+					System.out.println("Bug is Marked for closing");
+					markedForClose.add(b.getBugId());
+				}
+				else
+				{
+					System.out.println("Bug is being resolved!!");
+					inProgress.add(b.getBugId());
+				}
+				System.out.println("Enter Bug ID: ");
+			}
+			
+			
 		} catch (DataAccessException e) {
 			System.err.println(e.getMessage());
 		}
