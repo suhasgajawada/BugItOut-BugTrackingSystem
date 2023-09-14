@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type = "text/css" rel = "stylesheet" href = 'homePage.css'>
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link type = "text/css" rel = "stylesheet" href = '../nav/nav.css'>
+    <title>Home Page</title>
+</head>
+<body>
+  
+    <div class="pre-loader">
+        <div class="loading-text">
+            <span>B</span>
+            <span>u</span>
+            <span>g</span>
+            <span>&nbsp;</span>
+            <span>I</span>
+            <span>t</span>
+            <span>&nbsp;</span>
+            <span>O</span>
+            <span>u</span>
+            <span>t</span>
+        </div>
+    </div>
+
+    <nav class="navbar navbar-expand-custom navbar-mainbg">
+        <a class="navbar-brand navbar-logo" href="#">BugTracking System</a>
+        <button class="navbar-toggler" type="button" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fas fa-bars text-white"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <div class="hori-selector"><div class="left"></div><div class="right"></div></div>
+                <li class="nav-item active">
+                    <a class="nav-link" href="../MainPage/homePage.html"><i class="fas fa-tachometer-alt"></i>Home</a>
+                </li>
+               
+              
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><i class="far fa-calendar-alt"></i>Calendar</a>
+                </li>
+               
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><i class="far fa-copy"></i>Contact Us</a>
+                </li>
+
+                <li class="nav-item">
+                  <a class="nav-link" href="../MainPage/homePage.html"><i class="far fa-copy"></i>Log out</a>
+              </li>
+            </ul>
+            
+                <!-- <button class="btn btn-primary but" href="../C">Log out</button> -->
+                   
+                  
+        </div>
+    </nav>
+   
+    
+    <div class = "main-body">
+
+        
+        <div class = "main-body-sub">
+            <div class = "main-body-sub-text">
+                <h1> Bug It Out </h1>
+                <br>
+                <br>
+                <ul> <li>This is an online bug tracking system for projects.</li>
+                    <li> The application allows software testers to repoort bugs for project,</li> <li>Product managers to view all bugs,
+                assign bugs to developers</li><li> Developers to update the bugs status</li></ul>
+            </div>
+            <div class = "box-body">
+                
+                <div class = "box">
+                    <input type = "button" onclick="window.location.href='../ImportUser/ImportUser.html'" value = "Import"> </input>
+                    <input type = "button" onclick="window.location.href='../RegisterUser/registerUser.html'" value = "Register"> </input>
+                    <input type = "button" onclick="window.location.href='../login/login.html'" value = "Login"> </input>
+
+                </div>
+
+            </div>
+
+        </div>
+        <div class = "below-body">
+            <div class = "below-body-head"> 
+                <img src = "bug.jpg" , alt="bug">
+                <h2> What is a bug?</h2>
+            </div>
+            <br> <br>
+            <p> In computer technology, a bug is a coding error in a computer program. (We consider a program to also include the microcode that is manufactured into a microprocessor.) The process of finding bugs -- before users do -- is called debugging.<br>
+                Debugging starts after the code is written and continues in stages as code is combined with other units of programming to form a software product, such as an operating system or an application.
+                <br>
+                Bugs are often discovered after a product is released or during public beta testing. When this occurs, users have to find a way to avoid using the buggy code or get a patch from the software developers.</p>
+
+        </div>
+
+    </div>
+    <script src="homePage.js"></script>
+    <script src="../nav/nav.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>

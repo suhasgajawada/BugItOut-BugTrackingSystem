@@ -5,6 +5,35 @@ body{
     
     
 }
+mark{
+    background-color: yellow;
+    color: rgb(34, 177, 238);
+}
+
+h4{
+    font-size: larger;
+    color: black;
+    font-family: 'Times New Roman', Times, serif;
+    margin-left: 30px;
+}
+.text-secondary{
+    font-size: large;
+    margin-left: 70px;
+    color: black;
+    font-weight: 400;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.status-circle {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: green;
+    border: 2px solid white;
+    bottom: 0;
+    right: 0;
+    position: relative;
+    left:160px;
+  }
 .report-main{
     width: 1080px;
     height: 500px;
@@ -12,39 +41,64 @@ body{
     border-radius: 2%;
     display: flex;
     margin-top: 100px;
-    /* justify-content: center; */
+    justify-content: center;
     align-items: center;
 }
-.report-body form{
-    margin-left: 50px;
-    width: 300px;
-    font-size: 20px;
+.report-main2{
+    width: 30%;
     display: flex;
     justify-content: center;
-    flex-direction: column;
-    margin-left: 300px;
+    align-items: center;
 }
-/* .report-body form input{
-    width: 500px;
-    
+
+.report-main3{
+    width : 70%;
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+}
+/* .bug-report-form {
+    flex-direction: column;
 } */
+.bug-report form span {
+    display: flex;
+    justify-content: space-between;
+ 
+}
+#severity-level{
+    display: flex;
+    justify-content: center;
+}
+
 label {
     display: block;
     margin-bottom: 5px;
     font-weight: bold;
 }
-
-input[type="text"],
 textarea,
-select {
-    width: 100%;
-    padding: 1px;
-    margin-bottom: 1px;
+select,
+input {
+    width: 400px;
+      
+    border: 1px solid #ccc;
+    border-radius: 3px;  
+}
+.report-body {
+    height: 100%;
+}
+.report-body form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+input[type="text"]{
+    width: 400px;
+    height: 30px;
     border: 1px solid #ccc;
     border-radius: 3px;
 }
-.report-body form [type="submit"]{
-    background-color: rgb(24, 24, 235);
+.report-body form [type="button"]{
+    background-color: rgb(8, 156, 215);
     width: 150px;
     color: white;
     font-family: Verdana, Geneva, Tahoma, sans-serif; 
@@ -54,10 +108,10 @@ select {
     cursor: pointer;
     font-weight: bold;
 }
-input[type="submit"]:hover {
-    background-color: #057af7;
+input[type="button"]:hover {
+    background-color: #1c23e4;
 }
-input[type="submit"] {
+input[type="button"] {
     display: block;
     margin: 0 auto;
 }
