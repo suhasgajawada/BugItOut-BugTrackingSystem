@@ -104,6 +104,28 @@ public class TeamDaoImpl implements TeamDao {
         } finally {
            connection.close();
         }
+        
+	}
+	public void addDevlopersToTeam(int developerId,int projectId) throws DataAccessException{
+		Connection connection = null;
+		try {
+			connection = DbConnection.getConnection();
+			String sqlQuery ="insert into team_members values(?,?)";
+			PreparedStatement statement = connection.prepareStatement(sqlQuery);
+			statement.setInt(1, developerId);
+			statement.setInt(2, projectId);
+			statement.executeUpdate();
+			
+		} catch (SQLException |ClassNotFoundException e) {
+			throw new DataAccessException(e.getMessage(),e);
+		}finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				throw new DataAccessException("Unable to access data");
+			}
+		}
 	}
 
 }
