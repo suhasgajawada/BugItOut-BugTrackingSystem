@@ -41,10 +41,7 @@ public class UserServiceImpl implements UserService {
 			throw new DataAccessException(e.getMessage());
 		} catch(UserAlreadyExistsException e) {
 			throw new UserAlreadyExistsException(e.getMessage());
-		} catch (UserNotFoundException e) {
-			throw new InvalidDataException("Email invalid!");
-		} 
-
+		}
 	}
 
 	@Override
