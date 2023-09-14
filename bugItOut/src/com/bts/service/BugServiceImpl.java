@@ -4,9 +4,11 @@
 package com.bts.service;
 
 import java.sql.SQLException;
+import java.util.HashSet;
 import java.util.Set;
 
 import com.bts.beans.Bug;
+import com.bts.beans.enums.BugStatus;
 import com.bts.dao.BugDao;
 import com.bts.dao.TeamDao;
 import com.bts.exceptions.AuthorizationException;
@@ -71,6 +73,18 @@ public class BugServiceImpl implements BugService {
 	public void assignBugToDeveloper(int bugID, int developerID)
 			throws BugAssignmentException, DataAccessException, AuthorizationException {
 		try {
+			Set<Bug> bugsToDev = getBugsAssignedToDeveloper(developerID);
+			Set<Bug> active = new HashSet<>();
+			for(Bug b : bugsToDev)
+			{
+				if(b.getStatus()==BugStatus.open)
+					active.add(b);
+			}
+			for(Bug b : active)
+			{
+				if(b.getProjectId()!= getBugByID(bugID).getProjectId())
+					throw new BugAssignmentException("Different Project!!");
+			}
 			bugDaoService.assignBugToDeveloper(bugID, developerID);
 			Bug bug = getBugByID(bugID);
 			int projectId = bug.getProjectId();

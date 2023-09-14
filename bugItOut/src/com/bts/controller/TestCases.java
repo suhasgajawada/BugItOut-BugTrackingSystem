@@ -32,37 +32,9 @@ public class TestCases {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-
-        while (true) {
-            displayMenu();
-            int choice = scanner.nextInt();
-            scanner.nextLine(); // Consume the newline character
-
-            switch (choice) {
-                case 1:
-                    testUserRegistration();
-                    break;
-                case 2:
-                    testCreateNewProject();
-                    break;
-                case 9:
-                    System.out.println("Exiting the test program.");
-                    System.exit(0);
-                default:
-                    System.out.println("Invalid choice. Please try again.");
-            }
-        }
+        testUserRegistration();
+        testCreateNewProject();
     }
-
-    private static void displayMenu() {
-        System.out.println("Test Menu");
-        System.out.println("1. Test User Registration");
-        System.out.println("2. Test Create New Project");
-        // Add more test options here
-        System.out.println("9. Exit");
-        System.out.print("Enter your choice: ");
-    }
-
     private static void testUserRegistration() {
         System.out.println("Testing User Registration...");
 
@@ -70,27 +42,27 @@ public class TestCases {
         // Test case a: All fields are mandatory
         try{
         	userService.registerUser("alex@alex.com", null, null);
-        	System.err.println("Test case 1a (All fields mandatory): Failed");
+        	System.err.println("Test case 1a: Failed");
         }
-        catch (Exception e) {System.out.println("Test case 1a (All fields mandatory): Passed");
+        catch (Exception e) {System.out.println("Test case 1a: Passed");
 		}
         
         // Test case b: Email should exist and match with the role
         try{
         	userService.registerUser("alex@alex.com", "Alex@123", UserType.developer);
-        	System.err.println("Test case 1b (Email validation): Failed");
+        	System.err.println("Test case 1b: Failed");
         }
         catch(Exception e) {
-        	System.out.println("Test case 1b (Email validation): Passed");
+        	System.out.println("Test case 1b: Passed");
         }
 
         // Test case c: User should not have already been registered
         try{
         	userService.registerUser("max@champ.com", "Max@123", UserType.projectManager);
-        	System.err.println("Test case 1c (User already registered): Failed");
+        	System.err.println("Test case 1c: Failed");
         }
         catch(Exception e) {
-        	System.out.println("Test case 1c (User already registered): Passed");
+        	System.out.println("Test case 1c: Passed");
         }
     }
 
