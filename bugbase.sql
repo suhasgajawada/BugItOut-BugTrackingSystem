@@ -10,14 +10,17 @@ CREATE TABLE users(
   `userId` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(30) NOT NULL,
   `email` VARCHAR(55) NOT NULL,
+  `password` VARCHAR(255)  DEFAULT NULL,
   `loggedIn` BOOLEAN NOT NULL DEFAULT FALSE,
   `userType` ENUM('Project Manager', 'Developer', 'Tester') NOT NULL,
+  `lastLoginTime` TIMESTAMP DEFAULT null,
   PRIMARY KEY (`userId`),
   UNIQUE INDEX `email_UNIQUE` (`email` ASC));
 
 /* Project Table */
 CREATE TABLE projects(
   `projectId` INT NOT NULL AUTO_INCREMENT,
+  `projectManagerId` INT NOT NULL,
   `projectName` VARCHAR(255) NOT NULL,
   `description` TEXT NULL DEFAULT NULL,
   `startDate` DATE NOT NULL,
