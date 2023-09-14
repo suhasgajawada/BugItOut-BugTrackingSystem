@@ -1,6 +1,6 @@
 
 const users =[{
-  "email": " ajay@gmail.com",
+  "email": "ajay@gmail.com",
   "password": "password1",
   "role": "Manager"
 },
@@ -36,17 +36,17 @@ document.getElementById('login_form').addEventListener('submit', function (e) {
     // Redirect to main page based on user's role
     switch (user.role) {
       case 'Tester':
-        window.location.href = '/BugItOut-BugTrackingSystem/bugItOut/src/TesterMainPage/index.html'; // Replace with the actual admin page URL
+        window.location.href = '/bugItOut/src/TesterMainPage/index.html'; // Replace with the actual admin page URL
         break;
       case 'Developer':
-        window.location.href = '/BugItOut-BugTrackingSystem/bugItOut/src/DeveloperMainPage/developersMainPage.html';
+        window.location.href = '/bugItOut/src/DeveloperMainPage/developersMainPage.html';
         // Replace with the actual user page URL
         break;
       case 'Manager':
-        window.location.href = '/BugItOut-BugTrackingSystem/bugItOut/src/ProjectManagerPage/Index.html';// Replace with the actual user page URL
+        window.location.href = '../ProjectManagerPage/index.html';// Replace with the actual user page URL
         break;
       case 'FreeDeveloper':
-        window.location.href = '/BugItOut-BugTrackingSystem/bugItOut/src/DeveloperMainPage/freeDevlopersMainPage.html';
+        window.location.href = '/bugItOut/src/DeveloperMainPage/freeDevlopersMainPage.html';
         break;
 
 
