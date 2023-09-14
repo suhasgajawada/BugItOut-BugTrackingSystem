@@ -1,9 +1,60 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Navbar Styles */
+.navbar {
+    background-color: #5161ce; /*background */
+    color: white;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.menu {
+    list-style: none;
+    display: flex;
+}
+
+.menu li {
+    margin-right: 20px;
+}
+
+.menu a {
+    text-decoration: none;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.menu a:hover {
+    background-color: #007bff; /* Blue on hover */
+}
 body{
     background-color: rgb(11, 135, 184) ;
-    display: flex;
-    justify-content: center;
+    /* display: flex; */
+    /* justify-content: center; */
     /* margin-top: 100px; */
     
+}
+.importbox{
+    display: flex;
+    justify-content: center;
+  
 }
 .back p img{
     position: absolute;
@@ -29,11 +80,13 @@ body{
     background-color:white;
     border-radius: 2%;
     display: flex;
+    
     margin-top: 100px;
 }
 .import-gif{
     width: 50%;
-    
+    display: flex;
+    justify-content: center;
 }
 .import-gif img{
     width : 500px;
@@ -44,7 +97,7 @@ body{
     align-items: center;
     /* justify-content: space-around; */
     flex-direction: column;
-    height: 100%;
+    justify-content: center;
 
     
 }

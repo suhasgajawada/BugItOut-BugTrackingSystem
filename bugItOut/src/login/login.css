@@ -2,6 +2,52 @@
     padding: 0px;
     margin: 0px;
 }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Navbar Styles */
+.navbar {
+    background-color: #5161ce; /*background */
+    color: white;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+}
+
+.contain {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.menu {
+    list-style: none;
+    display: flex;
+}
+
+.menu li {
+    margin-right: 20px;
+}
+
+.menu a {
+    text-decoration: none;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.menu a:hover {
+    background-color: #007bff; /* Blue on hover */
+}
 body {
 	background-image:  url(bug.jpg);
     background-color: lightgreen;

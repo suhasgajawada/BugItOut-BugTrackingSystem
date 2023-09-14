@@ -6,47 +6,114 @@
     <title>Create Project</title>
     <!-- Add Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <!-- Add your custom CSS here -->
-    <style>
-        /* Define your custom styles here */
-        body {
-            background-color: #fff; /* White background */
-        }
-        .container {
-            padding: 20px;
-        }
-    </style>
+
 </head>
 <body>
-    <div class="container">
-        <h1>Create a New Project</h1>
-        <form id="project-form">
-            <div class="form-group">
-                <label for="projectName">Project Name</label>
-                <input type="text" class="form-control" id="projectName" placeholder="Project Name" required>
+    <div class = "navbar-box">
+        <div class="navbar">
+            <div class="container">
+                <div class="logo">Bug It Out</div>
+                <ul class="menu">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">Calendar</a></li>
+                    <li><a href="#">Login</a></li>
+                    <li><a href="#">Logout</a></li>
+                </ul>
             </div>
-            <div class="form-group">
-                <label for="startDate">Start Date</label>
-                <input type="date" class="form-control" id="startDate" required>
-            </div>
-            <div class="form-group">
-                <label for="projectDescription">Project Description</label>
-                <textarea class="form-control" id="projectDescription" rows="4" placeholder="Project Description"></textarea>
-            </div>
-            <div class="form-group">
-                <label for="teamRole">Assign team members to the project</label>
-                <select class="form-control" id="teamRole">
-                    <option value="Developer">Developer</option>
-                    <option value="Tester">Tester</option>
-                </select>
-            </div>
-            <button type="button" class="btn btn-primary" id="showMembers">Show Members</button>
-        </form>
-        <div id="memberList"></div>
-        <button type="submit" class="btn btn-primary" id="selectMembers" style="display: none;">Select</button><br>
-        <button  class="btn btn-primary"   onclick="window.location.href='../ProjectManagerPage/index.html'">Finish</button>
+        </div> 
+        <div class="cont">
+            <h1>Create a New Project</h1>
+            <form id="project-form">
+                <div class="form-group">
+                    <label for="projectName">Project Name</label>
+                    <input type="text" class="form-control" id="projectName" placeholder="Project Name" required>
+                </div>
+                <div class="form-group">
+                    <label for="startDate">Start Date</label>
+                    <input type="date" class="form-control" id="startDate" required>
+                </div>
+                <div class="form-group">
+                    <label for="projectDescription">Project Description</label>
+                    <textarea class="form-control" id="projectDescription" rows="4" placeholder="Project Description"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="teamRole">Assign team members to the project</label>
+                    <select class="form-control" id="teamRole">
+                        <option value="Developer">Developer</option>
+                        <option value="Tester">Tester</option>
+                    </select>
+                </div>
+                <button type="button" class="btn btn-primary" id="showMembers">Show Members</button>
+            </form>
+            <div id="memberList"></div>
+            <button type="submit" class="btn btn-primary" id="selectMembers" style="display: none;">Select</button><br>
+            <button  class="btn btn-primary"   onclick="window.location.href='../ProjectManagerPage/index.html'">Finish</button>
         
+        </div>
     </div>
+        <!-- Add your custom CSS here -->
+    <style>
+        /* Define your custom styles here */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    /* Navbar Styles */
+    .navbar {
+        background-color: #5161ce; /*background */
+        color: white;
+        font-family: Arial, sans-serif;
+        overflow: hidden;
+    }
+
+    .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
+    }
+
+    .logo {
+        font-size: 24px;
+        font-weight: bold;
+    }
+
+    .menu {
+        list-style: none;
+        display: flex;
+    }
+
+    .menu li {
+        margin-right: 20px;
+    }
+
+    .menu a {
+        text-decoration: none;
+        font-size: 24px;
+        color: white;
+        padding: 10px;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+    }
+
+    .menu a:hover {
+        background-color: #007bff; /* Blue on hover */
+    }
+    body {
+        background-color: #fff; /* White background */
+    }
+    .cont {
+        padding: 20px;
+    }
+    /* .navbar-box{
+        display: flex;
+        flex-direction: column;
+    } */
+            
+    </style>
 
     <!-- Add Bootstrap and jQuery JS (for Bootstrap functionality) -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
