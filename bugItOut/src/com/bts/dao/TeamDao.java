@@ -19,6 +19,6 @@ public interface TeamDao {
     Team getTeamByID(int teamID) throws TeamNotFoundException, DataAccessException; //not required
     Team getTeamByProjectID(int projectID) throws TeamNotFoundException, DataAccessException; //not required
     Set<User> getTeamMembersByProjectID(int projectID) throws DataAccessException, SQLException, ClassNotFoundException;
-    public void addDevlopersToTeam(int developerId,int projectId);
+    public void addDevlopersToTeam(int developerId,int projectId) throws DataAccessException;
 
 }

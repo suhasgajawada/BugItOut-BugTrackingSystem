@@ -3,6 +3,7 @@
  */
 package com.bts.service;
 
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.HashSet;
@@ -54,8 +55,13 @@ public class ProjectServiceImpl implements ProjectService {
 	        if (project.getStatus()!=ProjectStatus.inProgress) {
 	        	throw new InvalidDataException("Project Status invalid");
 	        }
+	        
 			projectDaoService.createProject(project);
-		} catch (DataAccessException e) {
+			Team team = new Team(project.getProjectId(),projectManagerId);
+			teamDaoService.createTeam(team);
+			team = new Team(project.getProjectId(),testerId);
+			teamDaoService.createTeam(team);
+		} catch (DataAccessException | ClassNotFoundException |SQLException e) {
 			throw new DataAccessException(e.getMessage(),e);
 		}
 
