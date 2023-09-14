@@ -32,7 +32,6 @@ CREATE TABLE projects(
 CREATE TABLE team_members(
   `userId` INT NOT  NULL UNIQUE,
   `projectId` INT NOT NULL ,
-  PRIMARY KEY (`teamId`),
   INDEX `projectId` (`projectId` ASC) ,
     FOREIGN KEY (`userId`)
     REFERENCES users(`userId`),
