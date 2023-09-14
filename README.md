@@ -6,3 +6,4 @@ This Project is an online bug tracking system for projects. The application allo
 * 'src' folder is present inside 'bugItOut' folder <br/>
 * All the backend code files are present in 'com' folder inside 'src' folder
 * All the databse table are present in 'bugbase.sql' file
+* Working of the project is explained in this [Project Guide Document](https://drive.google.com/file/d/1yd6vbB90OWl3P7MmIBHHblnSCmCnnZnn/view?usp=sharing)
