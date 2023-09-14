@@ -19,10 +19,11 @@ import com.bts.exceptions.TeamNotFoundException;
  * 
  */
 public interface ProjectService {
-	void createProject(Project project) throws DataAccessException, InvalidDataException, ProjectManagerLimitExceededException;
     Project getProjectByID(int projectID) throws ProjectNotFoundException, DataAccessException;
     Set<Project> getAllProjects() throws DataAccessException;
     Set<Project> getProjectsManagedByUser(int projectManagerID) throws DataAccessException, AuthenticationException;
     Set<Team> getProjectTeam(int projectID) throws TeamNotFoundException, DataAccessException;
+	void createProject(Project project, int projectManagerId, int testerId)
+			throws DataAccessException, ProjectManagerLimitExceededException;
 
 }

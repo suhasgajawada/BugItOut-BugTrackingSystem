@@ -12,6 +12,7 @@ import com.bts.beans.Team;
 import com.bts.beans.User;
 import com.bts.beans.enums.UserType;
 import com.bts.dao.ProjectDao;
+import com.bts.dao.TeamDao;
 import com.bts.dao.UserDao;
 import com.bts.exceptions.AuthenticationException;
 import com.bts.exceptions.DataAccessException;
@@ -32,13 +33,15 @@ public class ProjectServiceImpl implements ProjectService {
 	 */
 	ProjectDao projectDaoService = null;
 	UserDao userDaoService = null;
+	TeamDao teamDaoService = null;
 	public ProjectServiceImpl() {
 		 projectDaoService = ObjectFactory.getProjectDaoInstance();
 		 userDaoService = ObjectFactory.getUserDaoInstance();
-	}
+		 teamDaoService = ObjectFactory.getTeamDaoInstance();
+		 }
 
 	@Override
-	public void createProject(Project project)
+	public void createProject(Project project,int projectManagerId, int testerId)
 			throws DataAccessException,ProjectManagerLimitExceededException {
 		try {
 			projectDaoService.createProject(project);

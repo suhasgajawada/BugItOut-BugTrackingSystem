@@ -7,6 +7,7 @@ import java.util.Set;
 
 import com.bts.beans.Bug;
 import com.bts.dao.BugDao;
+import com.bts.dao.TeamDao;
 import com.bts.exceptions.AuthorizationException;
 import com.bts.exceptions.BugAssignmentException;
 import com.bts.exceptions.BugNotFoundException;
@@ -24,8 +25,10 @@ public class BugServiceImpl implements BugService {
 	 * 
 	 */
 	BugDao bugDaoService = null;
+	TeamDao teamDaoService =null;
 	public BugServiceImpl() {
 		bugDaoService = ObjectFactory.getBugDaoInstance();
+		teamDaoService = ObjectFactory.getTeamDaoInstance();
 	}
 
 	@Override
@@ -49,7 +52,14 @@ public class BugServiceImpl implements BugService {
 	@Override
 	public void assignBugToDeveloper(int bugID, int developerID)
 			throws BugAssignmentException, DataAccessException, AuthorizationException {
-		// TODO Auto-generated method stub
+		try {
+			bugDaoService.assignBugToDeveloper(bugID, developerID);
+			Bug bug = getBugByID(bugID);
+			int projectId = bug.getProjectId();
+			teamDaoService.addDevlopersToTeam(developerID, projectId);
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
 
 	}
 
