@@ -4,6 +4,7 @@
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
 <link type="text/css" rel = "stylesheet" href="login.css">
+
 </head>
 <body>
  <header>
@@ -11,21 +12,31 @@
     </header>
     <main>
 		
-        <form id="login_form" class="form_class" action="login/login-access.php" method="post">
+        <form id="login_form" ><!--class="form_class" action="login/login-access.php" method="post">-->
             <div class="form_div">
                 <label for="email">Login:</label>
                 <input class="field_class" name="email" type="email" id="email" placeholder="Enter your username" autofocus required autocomplete="off">
                 <label>Password:</label>
-                <input id="pass" class="field_class" name="password_txt" type="password" placeholder="Enter ypur password" required>
-                <button class="submit_class" type="submit" form="login_form" onclick="return validarLogin()">Login</button>
+                <input id="pass" class="field_class" name="password_txt" type="password" placeholder="Enter ypur password" required><br/>
+                <div id="status"></div>
+              <button class="submit_class" type="submit" form="login_form">Login</button><br/>
+             
+             
+              
             </div>
+            
             <div class="info_div">
-                <p>Not registered yet? <a href="../RegisterUser/registerUser.html">Register here!</a></p>
+                <p>Not registered yet? <a href="register/reg-form.php">Register here!</a></p>
             </div>
+        
         </form>
+
+   
+
     </main>
     <footer>
-        <p>Copyright @Code Fury 2023 | Team BugItOut</p>
+        <p>Code Fury 2023</p>
     </footer>x
+    <script type="text/javascript" src="login.js"></script>
 </body>
 </html>

@@ -1,0 +1,79 @@
+/* Add your CSS styles here */
+
+/* Body styles */
+body {
+    background-color: #f4f4f4;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Container styles */
+.container {
+    margin-top: 20px;
+}
+
+/* Project details card styles */
+.project-details {
+    border: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #e0f2f1; /* Light blue background */
+}
+
+.card-title.text-primary {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #007bff; /* Blue text color */
+}
+
+.card-text {
+    font-size: 18px;
+}
+
+/* Bug list card styles */
+.bug-list {
+    margin-top: 20px;
+    border: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #e0f2f1; /* Light blue background */
+}
+
+.card-title.text-primary {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #007bff; /* Blue text color */
+}
+
+.list-group-item {
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.list-group-item:hover {
+    background-color: #cfeefc; /* Lighter blue on hover */
+}
+
+/* Bug popup styles */
+.modal-content {
+    border: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.modal-header.bg-primary {
+    padding: 15px;
+    border-bottom: none;
+    background-color: #007bff; /* Blue header background */
+}
+
+.modal-title.text-white {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.modal-body {
+    font-size: 18px;
+}
+
+.modal-footer {
+    justify-content: center;
+}

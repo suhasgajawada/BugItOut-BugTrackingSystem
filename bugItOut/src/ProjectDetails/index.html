@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Project Details</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card mt-4 project-details">
+                    <div class="card-body">
+                        <h1 class="card-title text-primary">Project Details</h1>
+                        <p class="card-text"><strong>Project Name:</strong> <span id="project-name">Your Project Name</span></p>
+                        <p class="card-text"><strong>Start Date:</strong> <span id="start-date">Start Date</span></p>
+                        <p class="card-text"><strong>End Date:</strong> <span id="end-date">End Date</span></p>
+                        <p class="card-text"><strong>Bugs Identified:</strong> <span id="bug-count">0</span></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card mt-4 bug-list">
+                    <div class="card-body">
+                        <h2 class="card-title text-primary">Bug List</h2>
+                        <ul class="list-group" id="bug-list">
+                            <!-- Bug list items will be added here dynamically -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal" id="bug-popup">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-primary">
+                    <h2 class="modal-title text-white">Bug Details</h2>
+                    <button type="button" class="close" id="close-button">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <p id="bug-name">Bug Name</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" id="assign-button">Assign Bug</button>
+                    <button type="button" class="btn btn-secondary" id="close-button">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Include Bootstrap JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
