@@ -30,11 +30,9 @@ CREATE TABLE projects(
   
   /* Team_member Table */
 CREATE TABLE team_members(
-  `teamId` INT NOT NULL AUTO_INCREMENT,
-  `userId` INT NOT  NULL ,
+  `userId` INT NOT  NULL UNIQUE,
   `projectId` INT NOT NULL ,
   PRIMARY KEY (`teamId`),
-  INDEX `userId` (`userId` ASC) ,
   INDEX `projectId` (`projectId` ASC) ,
     FOREIGN KEY (`userId`)
     REFERENCES users(`userId`),
