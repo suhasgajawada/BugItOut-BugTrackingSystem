@@ -1,12 +1,11 @@
-/**
- * 
- */
+
 package com.bts.service;
 
 import java.util.HashSet;
 import java.util.Set;
 
 import com.bts.beans.User;
+import com.bts.beans.enums.UserType;
 import com.bts.dao.UserDao;
 import com.bts.exceptions.AuthenticationException;
 import com.bts.exceptions.DataAccessException;
@@ -33,12 +32,18 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public void createUser(User user) throws DataAccessException, InvalidDataException, UserAlreadyExistsException {
 		try {
+			if(user.getName()==null | user.getUserType()==null| user.getEmail()==null)
+				throw new InvalidDataException("All Fields are Mandatory!!");
+			if(!user.getEmail().contains("@"))
+				throw new InvalidDataException("Enter valid Email");
 			userDaoService.createUser(user);
 		} catch (DataAccessException e) {
-			throw new DataAccessException(e);
+			throw new DataAccessException(e.getMessage());
 		} catch(UserAlreadyExistsException e) {
-			throw new UserAlreadyExistsException(e);
-		}
+			throw new UserAlreadyExistsException(e.getMessage());
+		} catch (UserNotFoundException e) {
+			throw new InvalidDataException("Email invalid!");
+		} 
 
 	}
 
@@ -123,14 +128,16 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public void registerUser(String email, String password) throws UserAlreadyRegisteredException, DataAccessException, UserNotFoundException {
+	public void registerUser(String email, String password, UserType userType) throws UserAlreadyRegisteredException, DataAccessException, UserNotFoundException, InvalidDataException {
 		try {
-			if(email.isBlank() | password.isBlank()) {
-				throw new DataAccessException("All Fields are Mandatory !!!");
+			if(email.isBlank() | password.isBlank() | userType == null) {
+				throw new InvalidDataException("All Fields are Mandatory !!!");
 			}
-			userDaoService.registerUser(email, password);
+			if(getUserByEmail(email).getUserType()==userType){
+				throw new InvalidDataException("User Type Mismatch");
+			}
+			userDaoService.registerUser(email, password);		
 		}catch(UserAlreadyRegisteredException e) {
-		
 			throw new UserAlreadyRegisteredException(e.getMessage(),e);
 		}catch(DataAccessException e) {
 			throw new DataAccessException(e.getMessage(),e);

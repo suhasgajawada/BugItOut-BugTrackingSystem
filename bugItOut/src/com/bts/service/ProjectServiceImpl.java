@@ -3,6 +3,8 @@
  */
 package com.bts.service;
 
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -10,6 +12,7 @@ import com.bts.beans.Bug;
 import com.bts.beans.Project;
 import com.bts.beans.Team;
 import com.bts.beans.User;
+import com.bts.beans.enums.ProjectStatus;
 import com.bts.beans.enums.UserType;
 import com.bts.dao.ProjectDao;
 import com.bts.dao.TeamDao;
@@ -17,6 +20,7 @@ import com.bts.dao.UserDao;
 import com.bts.exceptions.AuthenticationException;
 import com.bts.exceptions.DataAccessException;
 import com.bts.exceptions.InvalidDataException;
+import com.bts.exceptions.InvalidDateException;
 import com.bts.exceptions.ProjectManagerLimitExceededException;
 import com.bts.exceptions.ProjectNotFoundException;
 import com.bts.exceptions.TeamNotFoundException;
@@ -42,8 +46,14 @@ public class ProjectServiceImpl implements ProjectService {
 
 	@Override
 	public void createProject(Project project,int projectManagerId, int testerId)
-			throws DataAccessException,ProjectManagerLimitExceededException {
+			throws DataAccessException,ProjectManagerLimitExceededException, InvalidDateException, InvalidDataException {
 		try {
+	        if (Math.abs(ChronoUnit.DAYS.between(LocalDate.now(), project.getStartDate())) < 2) {
+	            throw new InvalidDateException("The start date should be at least two days from now");
+	        }
+	        if (project.getStatus()!=ProjectStatus.inProgress) {
+	        	throw new InvalidDataException("Project Status invalid");
+	        }
 			projectDaoService.createProject(project);
 		} catch (DataAccessException e) {
 			throw new DataAccessException(e.getMessage(),e);
