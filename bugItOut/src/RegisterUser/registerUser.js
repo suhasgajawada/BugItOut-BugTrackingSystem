@@ -21,6 +21,7 @@ function checkPasswords() {
     if (strongPasswordRegex.test(password)) {
         if (password == confirmPassword) {
             alert('Passwords match!');
+            window.location.href="../login/login.html";
         } else {
             alert('Passwords do not match. Please try again.');
         }
