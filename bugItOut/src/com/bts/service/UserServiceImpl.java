@@ -61,6 +61,7 @@ public class UserServiceImpl implements UserService {
 		User user= null;
 		
 		try {
+			
 			user= userDaoService.getUserByEmail(email);
 			
 		}catch(UserNotFoundException e) {
@@ -75,6 +76,9 @@ public class UserServiceImpl implements UserService {
 	public User loginUser(String email, String password) throws AuthenticationException, DataAccessException {
 		User user =null;
 		try{
+			if(email.isBlank() | password.isBlank()) {
+				throw new AuthenticationException("All Fields are Mandatory !!!");
+			}
 			user =userDaoService.loginUser(email, password);
 		}catch(AuthenticationException e) {
 			throw new AuthenticationException(e.getMessage(),e);
@@ -99,6 +103,9 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public void updateUserPassword(String email, String newPassword) throws DataAccessException, InvalidDataException {
 		try {
+			if(email.isBlank() | newPassword.isBlank()) {
+				throw new InvalidDataException("All Fields are Mandatory !!!");
+			}
 			userDaoService.updateUserPassword(email, newPassword);
 		} catch (DataAccessException  e) {
 			throw new DataAccessException(e.getMessage(),e);		}
@@ -118,6 +125,9 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public void registerUser(String email, String password) throws UserAlreadyRegisteredException, DataAccessException, UserNotFoundException {
 		try {
+			if(email.isBlank() | password.isBlank()) {
+				throw new DataAccessException("All Fields are Mandatory !!!");
+			}
 			userDaoService.registerUser(email, password);
 		}catch(UserAlreadyRegisteredException e) {
 		

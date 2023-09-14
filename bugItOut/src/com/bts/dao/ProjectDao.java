@@ -20,7 +20,5 @@ public interface ProjectDao {
 	Project getProjectById(int projectId) throws ProjectNotFoundException,DataAccessException;
 	Set<Project> getAllProjects() throws DataAccessException;
 	Set<Project> getProjectsManagedByUser(int projectManagerId) throws DataAccessException;
-	Team getProjectTeam(int projectId) throws TeamNotFoundException,DataAccessException;
-	Set<Bug> getProjectBugs(int projectId) throws DataAccessException;
-	
+	Set<Team> getProjectTeam(int projectId) throws TeamNotFoundException,DataAccessException;
 }
