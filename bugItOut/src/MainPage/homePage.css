@@ -242,3 +242,9 @@ h1{
     line-height: 40px;
     letter-spacing: .6px;
 }
+footer .cr-con{
+    background-color: #232127;
+    color: white;
+    padding: 1rem 4rem;
+    text-align: center;
+}

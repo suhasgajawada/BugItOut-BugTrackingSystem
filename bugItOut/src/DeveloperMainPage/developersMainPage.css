@@ -202,3 +202,9 @@ a {
     font-weight: 500;
     font-family:Verdana, Geneva, Tahoma, sans-serif
 }
+footer .cr-con{
+    background-color: #232127;
+    color: white;
+    padding: 1rem 4rem;
+    text-align: center;
+}
